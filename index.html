@@ -1,8 +1,12 @@
+# Reselling Academy — `index.html`
+
+```html
 <!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Reselling Academy</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -12,18 +16,23 @@
     --bg:#08090d;
     --card:#11131a;
     --border:#252833;
-    --text:#fff;
+    --text:#ffffff;
     --muted:#9296a3;
     --primary:#7c5cff;
 }
 
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
 
 body{
     background:var(--bg);
     color:var(--text);
     min-height:100vh;
-    transition:.3s;
+    transition:.25s;
     background-size:cover;
     background-position:center;
     background-attachment:fixed;
@@ -33,7 +42,7 @@ header{
     position:sticky;
     top:0;
     z-index:100;
-    background:rgba(8,9,13,.92);
+    background:rgba(8,9,13,.94);
     backdrop-filter:blur(15px);
     border-bottom:1px solid var(--border);
 }
@@ -49,12 +58,34 @@ header{
     gap:15px;
 }
 
-.logo{font-size:22px;font-weight:800}
-.logo span{color:var(--primary)}
+.logo{
+    font-size:22px;
+    font-weight:800;
+}
 
-nav{display:flex;gap:22px}
-nav a{color:#bbb;text-decoration:none;cursor:pointer}
-nav a:hover{color:white}
+.logo span{
+    color:var(--primary);
+}
+
+nav{
+    display:flex;
+    gap:22px;
+}
+
+nav a{
+    color:#bbb;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+nav a:hover{
+    color:white;
+}
+
+.nav-buttons{
+    display:flex;
+    gap:10px;
+}
 
 button{
     border:0;
@@ -73,11 +104,6 @@ button{
     background:transparent;
     color:white;
     border:1px solid #30333e;
-}
-
-.nav-buttons{
-    display:flex;
-    gap:10px;
 }
 
 .hero{
@@ -103,7 +129,9 @@ button{
     margin-bottom:25px;
 }
 
-.hero h1 span{color:var(--primary)}
+.hero h1 span{
+    color:var(--primary);
+}
 
 .hero p{
     max-width:650px;
@@ -152,7 +180,9 @@ button{
     padding:30px;
 }
 
-.card.pro{border-color:var(--primary)}
+.card.pro{
+    border-color:var(--primary);
+}
 
 .card h3{
     font-size:25px;
@@ -186,7 +216,9 @@ button{
     margin-right:10px;
 }
 
-.full-btn{width:100%}
+.full-btn{
+    width:100%;
+}
 
 .panel{
     display:none;
@@ -213,13 +245,19 @@ button{
     border:1px solid var(--border);
     border-radius:16px;
     padding:22px;
-    margin-bottom:20px;
 }
 
-.admin-card h3{margin-bottom:10px}
-.admin-card p{color:var(--muted);margin-bottom:15px}
+.admin-card h3{
+    margin-bottom:10px;
+}
 
-.input,.textarea{
+.admin-card p{
+    color:var(--muted);
+    margin-bottom:15px;
+}
+
+.input,
+.textarea{
     width:100%;
     padding:14px;
     margin:8px 0;
@@ -284,19 +322,46 @@ button{
     font-size:14px;
 }
 
-.success{color:#67e8a5}
-.error{color:#ff7777}
+.success{
+    color:#67e8a5;
+}
+
+.error{
+    color:#ff7777;
+}
+
+.admin-badge{
+    display:inline-block;
+    background:rgba(124,92,255,.15);
+    color:#b29fff;
+    padding:6px 10px;
+    border-radius:8px;
+    margin-bottom:15px;
+}
 
 footer{
     border-top:1px solid var(--border);
     text-align:center;
     padding:35px;
     color:#737784;
+    margin-top:50px;
 }
 
 @media(max-width:800px){
-    nav{display:none}
-    .cards,.admin-grid{grid-template-columns:1fr}
+
+    nav{
+        display:none;
+    }
+
+    .cards,
+    .admin-grid{
+        grid-template-columns:1fr;
+    }
+
+    .nav-buttons .secondary{
+        display:none;
+    }
+
 }
 </style>
 </head>
@@ -304,6 +369,7 @@ footer{
 <body>
 
 <header>
+
 <div class="nav">
 
 <div class="logo">
@@ -317,11 +383,17 @@ Reselling <span>Academy</span>
 </nav>
 
 <div class="nav-buttons">
-<button class="secondary" onclick="openModal('login')">Zaloguj się</button>
-<button class="primary" onclick="openModal('register')">Załóż konto</button>
+<button class="secondary" onclick="openModal('login')">
+Zaloguj się
+</button>
+
+<button class="primary" onclick="openModal('register')">
+Załóż konto
+</button>
 </div>
 
 </div>
+
 </header>
 
 
@@ -329,7 +401,9 @@ Reselling <span>Academy</span>
 
 <section class="hero">
 
-<div class="badge">🚀 Reselling Academy</div>
+<div class="badge">
+🚀 Reselling Academy
+</div>
 
 <h1>
 Zacznij swój<br>
@@ -337,8 +411,8 @@ Zacznij swój<br>
 </h1>
 
 <p>
-Wiedza, produkty, dostawcy i strategie
-sprzedaży online.
+Wiedza, produkty, dostawcy i strategie,
+które pomogą Ci rozpocząć sprzedaż online.
 </p>
 
 <div class="hero-buttons">
@@ -350,7 +424,7 @@ Zobacz kursy
 
 <button class="secondary"
 onclick="openModal('register')">
-Załóż konto
+Załóż darmowe konto
 </button>
 
 </div>
@@ -360,34 +434,40 @@ Załóż konto
 
 <section class="section" id="courses">
 
-<h2 class="section-title">Wybierz swój pakiet</h2>
+<h2 class="section-title">
+Wybierz swój pakiet
+</h2>
 
 <p class="section-subtitle">
-Wybierz pakiet dla siebie.
+Wybierz pakiet odpowiedni dla siebie.
 </p>
 
 <div class="cards">
+
 
 <div class="card">
 
 <h3>📦 Reselling od zera</h3>
 
 <p>
-Podstawy resellingu i dostęp do dostawcy.
+Pakiet dla osób, które dopiero zaczynają
+swoją przygodę z resellingiem.
 </p>
 
-<div class="price">29,99 zł</div>
+<div class="price">
+29,99 zł
+</div>
 
 <ul class="features">
 <li>Podstawy resellingu</li>
-<li>Szukanie produktów</li>
-<li>Wycena produktów</li>
+<li>Jak szukać produktów</li>
+<li>Jak wyceniać produkty</li>
 <li>Podstawy sprzedaży</li>
 <li>Dostęp do dostawcy</li>
 </ul>
 
 <button class="primary full-btn"
-onclick="buy('Reselling od zera',29.99)">
+onclick="buyCourse('Reselling od zera',29.99)">
 Kup teraz
 </button>
 
@@ -396,18 +476,23 @@ Kup teraz
 
 <div class="card pro">
 
-<div class="badge">⭐ POLECANY</div>
+<div class="badge">
+⭐ POLECANY
+</div>
 
 <h3>🚀 Reselling Pro</h3>
 
 <p>
-Wszystko z Reselling od zera oraz zaawansowane materiały.
+Rozszerzony pakiet dla osób,
+które chcą rozwijać sprzedaż.
 </p>
 
-<div class="price">59,99 zł</div>
+<div class="price">
+59,99 zł
+</div>
 
 <ul class="features">
-<li>Wszystko z pakietu podstawowego</li>
+<li>Wszystko z Reselling od zera</li>
 <li>Zaawansowane strategie</li>
 <li>Wyszukiwanie okazji</li>
 <li>Skalowanie sprzedaży</li>
@@ -415,7 +500,7 @@ Wszystko z Reselling od zera oraz zaawansowane materiały.
 </ul>
 
 <button class="primary full-btn"
-onclick="buy('Reselling Pro',59.99)">
+onclick="buyCourse('Reselling Pro',59.99)">
 Kup Pro
 </button>
 
@@ -427,10 +512,13 @@ Kup Pro
 <h3>👑 Mentoring</h3>
 
 <p>
-Wszystko z Reselling od zera i Reselling Pro oraz materiały mentoringowe.
+Wszystko z podstaw i Pro oraz
+dodatkowe materiały mentoringowe.
 </p>
 
-<div class="price">100 zł</div>
+<div class="price">
+100 zł
+</div>
 
 <ul class="features">
 <li>Reselling od zera</li>
@@ -441,13 +529,15 @@ Wszystko z Reselling od zera i Reselling Pro oraz materiały mentoringowe.
 </ul>
 
 <button class="primary full-btn"
-onclick="buy('Mentoring',100)">
+onclick="buyCourse('Mentoring',100)">
 Kup Mentoring
 </button>
 
 </div>
 
+
 </div>
+
 </section>
 
 </main>
@@ -466,13 +556,19 @@ Kup Mentoring
 <br>
 
 <div class="card">
+
 <h3>📚 Twoje kursy</h3>
-<p>Po zakupie kurs będzie dostępny tutaj.</p>
+
+<p>
+Tutaj będą pojawiały się zakupione kursy.
+</p>
+
 </div>
 
 <br>
 
-<button class="secondary" onclick="logout()">
+<button class="secondary"
+onclick="logout()">
 Wyloguj się
 </button>
 
@@ -487,10 +583,14 @@ Wyloguj się
 
 <div class="panel-box">
 
-<h2>👑 Panel administratora</h2>
+<div class="admin-badge">
+👑 ADMIN
+</div>
+
+<h2>Panel administratora</h2>
 
 <p>
-Zarządzaj wyglądem strony.
+Zarządzaj wyglądem i ustawieniami strony.
 </p>
 
 <br>
@@ -498,23 +598,25 @@ Zarządzaj wyglądem strony.
 <div class="admin-grid">
 
 
+<!-- AI DESIGNER -->
+
 <div class="admin-card">
 
 <h3>🤖 AI Designer</h3>
 
 <p>
-Opisz AI, jak ma wyglądać strona.
+Opisz, jak ma wyglądać strona.
 </p>
 
 <textarea
 class="textarea"
 id="aiPrompt"
-placeholder="Np. Zrób czarne tło, fioletowe przyciski i nowoczesny wygląd.">
+placeholder="Np. czarne tło, niebieskie przyciski i nowoczesny wygląd">
 </textarea>
 
 <button class="primary full-btn"
-onclick="runAI()">
-✨ Zastosuj przez AI
+onclick="runAIDesigner()">
+✨ Zastosuj
 </button>
 
 <p id="aiResult"></p>
@@ -522,37 +624,45 @@ onclick="runAI()">
 </div>
 
 
+<!-- KOLORY -->
+
 <div class="admin-card">
 
-<h3>🎨 Ręczna zmiana wyglądu</h3>
+<h3>🎨 Ręczna zmiana kolorów</h3>
 
 <div class="color-row">
+
 <span>Kolor tła</span>
 
 <input
-type="color"
-class="color-input"
 id="bgColor"
+class="color-input"
+type="color"
 value="#08090d">
+
 </div>
 
 <div class="color-row">
+
 <span>Kolor przycisków</span>
 
 <input
-type="color"
-class="color-input"
 id="primaryColor"
+class="color-input"
+type="color"
 value="#7c5cff">
+
 </div>
 
 <button class="primary full-btn"
-onclick="applyColors()">
+onclick="saveColors()">
 💾 Zapisz kolory
 </button>
 
 </div>
 
+
+<!-- TŁO -->
 
 <div class="admin-card">
 
@@ -563,31 +673,34 @@ Wybierz zdjęcie z telefonu lub komputera.
 </p>
 
 <input
+id="backgroundFile"
 class="file-input"
 type="file"
 accept="image/*"
-onchange="changeBackground(event)">
+onchange="setBackground(event)">
 
 <button class="secondary full-btn"
 onclick="removeBackground()">
-Usuń zdjęcie
+Usuń zdjęcie tła
 </button>
 
 </div>
 
+
+<!-- KODY -->
 
 <div class="admin-card">
 
 <h3>🎟️ Kody rabatowe</h3>
 
 <input
-class="input"
 id="promoCode"
+class="input"
 placeholder="Np. START10">
 
 <input
-class="input"
 id="promoDiscount"
+class="input"
 type="number"
 min="1"
 max="100"
@@ -602,11 +715,13 @@ Dodaj kod
 
 </div>
 
+
 </div>
 
 <br>
 
-<button class="secondary" onclick="showHome()">
+<button class="secondary"
+onclick="showHome()">
 ← Wróć na stronę
 </button>
 
@@ -616,29 +731,32 @@ Dodaj kod
 
 
 <footer>
-© 2026 Reselling Academy
+© 2026 Reselling Academy — Wszystkie prawa zastrzeżone.
 </footer>
 
 
-<!-- LOGOWANIE -->
+<!-- LOGIN -->
 
 <div class="modal" id="loginModal">
 
 <div class="modal-box">
 
-<button class="close" onclick="closeModals()">×</button>
+<button class="close"
+onclick="closeModals()">
+×
+</button>
 
 <h2>Logowanie</h2>
 
 <input
-class="input"
 id="loginEmail"
+class="input"
 type="email"
 placeholder="Adres e-mail">
 
 <input
-class="input"
 id="loginPassword"
+class="input"
 type="password"
 placeholder="Hasło">
 
@@ -647,37 +765,43 @@ onclick="login()">
 Zaloguj się
 </button>
 
-<p class="message" id="loginMessage"></p>
+<p
+id="loginMessage"
+class="message">
+</p>
 
 </div>
 
 </div>
 
 
-<!-- REJESTRACJA -->
+<!-- REGISTER -->
 
 <div class="modal" id="registerModal">
 
 <div class="modal-box">
 
-<button class="close" onclick="closeModals()">×</button>
+<button class="close"
+onclick="closeModals()">
+×
+</button>
 
 <h2>Utwórz konto</h2>
 
 <input
-class="input"
 id="registerName"
+class="input"
 placeholder="Imię">
 
 <input
-class="input"
 id="registerEmail"
+class="input"
 type="email"
 placeholder="Adres e-mail">
 
 <input
-class="input"
 id="registerPassword"
+class="input"
 type="password"
 placeholder="Hasło">
 
@@ -686,7 +810,10 @@ onclick="register()">
 Utwórz konto
 </button>
 
-<p class="message" id="registerMessage"></p>
+<p
+id="registerMessage"
+class="message">
+</p>
 
 </div>
 
@@ -695,661 +822,1058 @@ Utwórz konto
 
 <script>
 
-/* =========================================
+/* ==========================================
    SUPABASE
-   WPISZ TUTAJ SWÓJ PROJECT URL I
-   PUBLISHABLE KEY
-========================================= */
+========================================== */
 
-const SUPABASE_URL = "https://vrlradzprbqwrfbbvdtm.supabase.co/rest/v1/";
+/*
+  WSTAW TUTAJ:
 
-const SUPABASE_KEY = "sb_publishable_8r0ljEKqUz7LBvO0QeaZTw_diesOw-t";
+  1. API URL z Supabase
+  2. Publishable key
+
+  NIE WSTAWIAJ SECRET KEY.
+*/
+
+const SUPABASE_URL =
+"WKLEJ_TUTAJ_API_URL";
+
+const SUPABASE_KEY =
+"WKLEJ_TUTAJ_PUBLISHABLE_KEY";
+
 
 const supabaseClient =
-supabase.createClient(
+window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
 );
 
 
-/* =========================================
-   PRODUKTY
-========================================= */
+/* ==========================================
+   POMOCNICZE
+========================================== */
 
-const products = [
-
-{
-name:"Reselling od zera",
-price:29.99
-},
-
-{
-name:"Reselling Pro",
-price:59.99
-},
-
-{
-name:"Mentoring",
-price:100
+function $(id){
+    return document.getElementById(id);
 }
 
-];
-
-
-let promos =
-JSON.parse(localStorage.getItem("promos")) || [];
-
-let selectedProduct = null;
-let selectedPrice = 0;
-let selectedDiscount = 0;
-
-
-/* =========================================
-   MODALE
-========================================= */
 
 function openModal(type){
 
-closeModals();
+    closeModals();
 
-if(type==="login")
-document.getElementById("loginModal").style.display="flex";
+    if(type==="login"){
+        $("loginModal").style.display="flex";
+    }
 
-if(type==="register")
-document.getElementById("registerModal").style.display="flex";
+    if(type==="register"){
+        $("registerModal").style.display="flex";
+    }
 
 }
 
 
 function closeModals(){
 
-document.getElementById("loginModal").style.display="none";
+    $("loginModal").style.display="none";
 
-document.getElementById("registerModal").style.display="none";
-
-}
-
-
-/* =========================================
-   REJESTRACJA SUPABASE
-========================================= */
-
-async function register(){
-
-const name =
-document.getElementById("registerName").value.trim();
-
-const email =
-document.getElementById("registerEmail").value.trim();
-
-const password =
-document.getElementById("registerPassword").value;
-
-const message =
-document.getElementById("registerMessage");
-
-
-if(!name || !email || !password){
-
-message.className="message error";
-message.textContent="Uzupełnij wszystkie pola.";
-return;
-
-}
-
-if(password.length<6){
-
-message.className="message error";
-message.textContent="Hasło musi mieć minimum 6 znaków.";
-return;
-
-}
-
-
-const {data,error} =
-await supabaseClient.auth.signUp({
-
-email:email,
-password:password
-
-});
-
-
-if(error){
-
-message.className="message error";
-message.textContent=error.message;
-return;
-
-}
-
-
-if(data.user){
-
-const {error:profileError} =
-await supabaseClient
-.from("profiles")
-.insert({
-
-id:data.user.id,
-name:name,
-email:email,
-is_admin:false
-
-});
-
-
-if(profileError){
-
-console.log(profileError);
-
-}
-
-}
-
-
-message.className="message success";
-
-message.textContent=
-"Konto utworzone. Sprawdź e-mail, jeśli Supabase wymaga potwierdzenia.";
-
-}
-
-
-/* =========================================
-   LOGOWANIE
-========================================= */
-
-async function login(){
-
-const email =
-document.getElementById("loginEmail").value.trim();
-
-const password =
-document.getElementById("loginPassword").value;
-
-const message =
-document.getElementById("loginMessage");
-
-
-const {data,error} =
-await supabaseClient.auth.signInWithPassword({
-
-email:email,
-password:password
-
-});
-
-
-if(error){
-
-message.className="message error";
-message.textContent=error.message;
-return;
-
-}
-
-
-await loadUser(data.user);
-
-closeModals();
-
-}
-
-
-/* =========================================
-   SPRAWDZENIE UŻYTKOWNIKA
-========================================= */
-
-async function loadUser(user){
-
-const {data,error} =
-await supabaseClient
-.from("profiles")
-.select("*")
-.eq("id",user.id)
-.single();
-
-
-if(error){
-
-console.log(error);
-showHome();
-return;
-
-}
-
-
-if(data.is_admin){
-
-showAdmin();
-
-}else{
-
-showDashboard(data);
-
-}
-
-}
-
-
-/* =========================================
-   PANEL UŻYTKOWNIKA
-========================================= */
-
-function showDashboard(user){
-
-document.getElementById("home").style.display="none";
-
-document.getElementById("adminPanel").style.display="none";
-
-document.getElementById("dashboard").style.display="block";
-
-document.getElementById("welcome").textContent=
-"Witaj, "+user.name+"! 👋";
+    $("registerModal").style.display="none";
 
 }
 
 
 function showHome(){
 
-document.getElementById("home").style.display="block";
+    $("home").style.display="block";
 
-document.getElementById("dashboard").style.display="none";
+    $("dashboard").style.display="none";
 
-document.getElementById("adminPanel").style.display="none";
-
-}
-
-
-/* =========================================
-   ADMIN
-========================================= */
-
-function showAdmin(){
-
-document.getElementById("home").style.display="none";
-
-document.getElementById("dashboard").style.display="none";
-
-document.getElementById("adminPanel").style.display="block";
-
-renderPromos();
-
-}
-
-
-/* =========================================
-   WYLOGOWANIE
-========================================= */
-
-async function logout(){
-
-await supabaseClient.auth.signOut();
-
-showHome();
-
-}
-
-
-/* =========================================
-   ZAKUP
-========================================= */
-
-function buy(name,price){
-
-selectedProduct=name;
-selectedPrice=price;
-
-alert(
-"Wybrano "+name+
-" za "+price.toFixed(2)+
-" zł.\n\nPrawdziwe płatności podłączymy później."
-);
-
-}
-
-
-/* =========================================
-   KODY RABATOWE
-========================================= */
-
-function addPromo(){
-
-const code =
-document.getElementById("promoCode")
-.value.trim().toUpperCase();
-
-const discount =
-Number(document.getElementById("promoDiscount").value);
-
-if(!code || discount<1 || discount>100){
-
-alert("Wpisz poprawny kod i rabat 1–100%.");
-return;
-
-}
-
-promos.push({
-code:code,
-discount:discount
-});
-
-localStorage.setItem(
-"promos",
-JSON.stringify(promos)
-);
-
-renderPromos();
-
-}
-
-
-function renderPromos(){
-
-const list =
-document.getElementById("promoList");
-
-if(!list)return;
-
-list.innerHTML="";
-
-promos.forEach((promo,index)=>{
-
-const div=document.createElement("div");
-
-div.style.marginTop="10px";
-
-div.innerHTML=
-"<b>"+promo.code+"</b> — "+
-promo.discount+"% "+
-"<button class='secondary' onclick='deletePromo("+
-index+
-")'>Usuń</button>";
-
-list.appendChild(div);
-
-});
-
-}
-
-
-function deletePromo(index){
-
-promos.splice(index,1);
-
-localStorage.setItem(
-"promos",
-JSON.stringify(promos)
-);
-
-renderPromos();
-
-}
-
-
-/* =========================================
-   KOLORY
-========================================= */
-
-function applyColors(){
-
-const bg =
-document.getElementById("bgColor").value;
-
-const primary =
-document.getElementById("primaryColor").value;
-
-document.documentElement.style.setProperty(
-"--bg",bg
-);
-
-document.documentElement.style.setProperty(
-"--primary",primary
-);
-
-localStorage.setItem("siteBg",bg);
-localStorage.setItem("sitePrimary",primary);
-
-alert("Wygląd zapisany.");
-
-}
-
-
-/* =========================================
-   WŁASNE ZDJĘCIE
-========================================= */
-
-function changeBackground(event){
-
-const file=event.target.files[0];
-
-if(!file)return;
-
-if(!file.type.startsWith("image/")){
-
-alert("Wybierz zdjęcie.");
-return;
-
-}
-
-const reader=new FileReader();
-
-reader.onload=function(e){
-
-document.body.style.backgroundImage=
-"url('"+e.target.result+"')";
-
-localStorage.setItem(
-"siteBackgroundImage",
-e.target.result
-);
-
-};
-
-reader.readAsDataURL(file);
-
-}
-
-
-function removeBackground(){
-
-document.body.style.backgroundImage="none";
-
-localStorage.removeItem(
-"siteBackgroundImage"
-);
-
-}
-
-
-/* =========================================
-   AI DESIGNER — TEST
-========================================= */
-
-function runAI(){
-
-const prompt =
-document.getElementById("aiPrompt")
-.value.toLowerCase();
-
-const result =
-document.getElementById("aiResult");
-
-let changed=false;
-
-
-/* TŁO */
-
-if(prompt.includes("czarn")){
-
-document.documentElement.style.setProperty(
-"--bg","#050505"
-);
-
-changed=true;
-
-}
-
-if(prompt.includes("bia")){
-
-document.documentElement.style.setProperty(
-"--bg","#f5f5f5"
-);
-
-document.documentElement.style.setProperty(
-"--text","#111"
-);
-
-changed=true;
-
-}
-
-
-/* KOLORY */
-
-if(prompt.includes("fiolet")){
-
-document.documentElement.style.setProperty(
-"--primary","#7c5cff"
-);
-
-changed=true;
-
-}
-
-else if(prompt.includes("niebies")){
-
-document.documentElement.style.setProperty(
-"--primary","#1683ff"
-);
-
-changed=true;
-
-}
-
-else if(prompt.includes("czerw")){
-
-document.documentElement.style.setProperty(
-"--primary","#ef4444"
-);
-
-changed=true;
-
-}
-
-else if(prompt.includes("zielon")){
-
-document.documentElement.style.setProperty(
-"--primary","#22c55e"
-);
-
-changed=true;
-
-}
-
-else if(prompt.includes("różow") ||
-prompt.includes("rozow")){
-
-document.documentElement.style.setProperty(
-"--primary","#ec4899"
-);
-
-changed=true;
-
-}
-
-
-if(changed){
-
-result.className="message success";
-
-result.textContent=
-"✅ Zastosowano zmianę testową.";
-
-}else{
-
-result.className="message error";
-
-result.textContent=
-"Nie rozpoznałem jeszcze polecenia. Spróbuj np. „czarne tło i fioletowe przyciski”.";
-
-}
-
-}
-
-
-/* =========================================
-   START
-========================================= */
-
-async function start(){
-
-const bg=localStorage.getItem("siteBg");
-
-const primary=localStorage.getItem("sitePrimary");
-
-const image=
-localStorage.getItem("siteBackgroundImage");
-
-
-if(bg){
-
-document.documentElement.style.setProperty(
-"--bg",bg
-);
-
-document.getElementById("bgColor").value=bg;
-
-}
-
-
-if(primary){
-
-document.documentElement.style.setProperty(
-"--primary",primary
-);
-
-document.getElementById("primaryColor").value=primary;
-
-}
-
-
-if(image){
-
-document.body.style.backgroundImage=
-"url('"+image+"')";
-
-}
-
-
-const {
-data:{session}
-}=await supabaseClient.auth.getSession();
-
-
-if(session){
-
-await loadUser(session.user);
-
-}
+    $("adminPanel").style.display="none";
 
 }
 
 
 function scrollToSection(id){
 
-const el=document.getElementById(id);
+    const element=$(id);
 
-if(el){
+    if(element){
 
-el.scrollIntoView({
-behavior:"smooth"
-});
+        element.scrollIntoView({
+            behavior:"smooth"
+        });
+
+    }
 
 }
 
+
+/* ==========================================
+   REJESTRACJA
+========================================== */
+
+async function register(){
+
+    const name=
+        $("registerName").value.trim();
+
+    const email=
+        $("registerEmail").value.trim();
+
+    const password=
+        $("registerPassword").value;
+
+    const message=
+        $("registerMessage");
+
+
+    message.className="message";
+
+
+    if(!name || !email || !password){
+
+        message.className="message error";
+
+        message.textContent=
+        "Uzupełnij wszystkie pola.";
+
+        return;
+
+    }
+
+
+    if(password.length<6){
+
+        message.className="message error";
+
+        message.textContent=
+        "Hasło musi mieć minimum 6 znaków.";
+
+        return;
+
+    }
+
+
+    try{
+
+        const result=
+        await supabaseClient.auth.signUp({
+
+            email:email,
+
+            password:password,
+
+            options:{
+                data:{
+                    name:name
+                }
+            }
+
+        });
+
+
+        if(result.error){
+
+            throw result.error;
+
+        }
+
+
+        /*
+          Profil zapisujemy dopiero wtedy,
+          gdy użytkownik jest już zalogowany.
+          Dzięki temu unikamy problemów z RLS.
+        */
+
+        if(result.data.user && result.data.session){
+
+            await createProfile(
+                result.data.user,
+                name,
+                email
+            );
+
+        }
+
+
+        message.className=
+        "message success";
+
+        message.textContent=
+        "Konto utworzone. Sprawdź e-mail, jeśli wymagane jest potwierdzenie.";
+
+
+    }catch(error){
+
+        console.error(error);
+
+        message.className=
+        "message error";
+
+        message.textContent=
+        error.message ||
+        "Nie udało się utworzyć konta.";
+
+    }
+
 }
+
+
+/* ==========================================
+   TWORZENIE PROFILU
+========================================== */
+
+async function createProfile(
+    user,
+    name,
+    email
+){
+
+    const result=
+    await supabaseClient
+    .from("profiles")
+    .upsert({
+
+        id:user.id,
+
+        name:name,
+
+        email:email,
+
+        is_admin:false
+
+    });
+
+
+    if(result.error){
+
+        console.error(
+            "Profile error:",
+            result.error
+        );
+
+    }
+
+}
+
+
+/* ==========================================
+   LOGOWANIE
+========================================== */
+
+async function login(){
+
+    const email=
+        $("loginEmail").value.trim();
+
+    const password=
+        $("loginPassword").value;
+
+    const message=
+        $("loginMessage");
+
+
+    message.className="message";
+
+
+    if(!email || !password){
+
+        message.className=
+        "message error";
+
+        message.textContent=
+        "Wpisz e-mail i hasło.";
+
+        return;
+
+    }
+
+
+    try{
+
+        const result=
+        await supabaseClient.auth.signInWithPassword({
+
+            email:email,
+
+            password:password
+
+        });
+
+
+        if(result.error){
+
+            throw result.error;
+
+        }
+
+
+        closeModals();
+
+        await loadUser(
+            result.data.user
+        );
+
+
+    }catch(error){
+
+        console.error(error);
+
+        message.className=
+        "message error";
+
+        message.textContent=
+        error.message ||
+        "Nie udało się zalogować.";
+
+    }
+
+}
+
+
+/* ==========================================
+   ŁADOWANIE PROFILU
+========================================== */
+
+async function loadUser(user){
+
+    if(!user){
+
+        showHome();
+
+        return;
+
+    }
+
+
+    let result=
+    await supabaseClient
+    .from("profiles")
+    .select("*")
+    .eq("id",user.id)
+    .maybeSingle();
+
+
+    /*
+      Jeśli profil nie istnieje,
+      tworzymy go automatycznie.
+    */
+
+    if(!result.data){
+
+        await createProfile(
+            user,
+            user.user_metadata?.name || "Użytkownik",
+            user.email || ""
+        );
+
+
+        result=
+        await supabaseClient
+        .from("profiles")
+        .select("*")
+        .eq("id",user.id)
+        .maybeSingle();
+
+    }
+
+
+    if(result.error){
+
+        console.error(result.error);
+
+        showDashboard({
+
+            name:
+            user.user_metadata?.name ||
+            "Użytkownik"
+
+        });
+
+        return;
+
+    }
+
+
+    if(result.data?.is_admin===true){
+
+        showAdmin();
+
+    }else{
+
+        showDashboard(
+            result.data || {
+                name:"Użytkownik"
+            }
+        );
+
+    }
+
+}
+
+
+/* ==========================================
+   PANEL UŻYTKOWNIKA
+========================================== */
+
+function showDashboard(user){
+
+    $("home").style.display="none";
+
+    $("adminPanel").style.display="none";
+
+    $("dashboard").style.display="block";
+
+    $("welcome").textContent=
+    "Witaj, "+
+    (user.name || "Użytkowniku")+
+    "! 👋";
+
+}
+
+
+/* ==========================================
+   PANEL ADMINA
+========================================== */
+
+function showAdmin(){
+
+    $("home").style.display="none";
+
+    $("dashboard").style.display="none";
+
+    $("adminPanel").style.display="block";
+
+    renderPromos();
+
+}
+
+
+/* ==========================================
+   WYLOGOWANIE
+========================================== */
+
+async function logout(){
+
+    await supabaseClient.auth.signOut();
+
+    showHome();
+
+}
+
+
+/* ==========================================
+   ZAKUP
+========================================== */
+
+function buyCourse(name,price){
+
+    alert(
+        "Wybrano: "+
+        name+
+        "\nCena: "+
+        price.toFixed(2)+
+        " zł\n\n"+
+        "Płatności podłączymy w kolejnym kroku."
+    );
+
+}
+
+
+/* ==========================================
+   KOLORY
+========================================== */
+
+function saveColors(){
+
+    const bg=
+        $("bgColor").value;
+
+    const primary=
+        $("primaryColor").value;
+
+
+    document.documentElement
+    .style
+    .setProperty(
+        "--bg",
+        bg
+    );
+
+
+    document.documentElement
+    .style
+    .setProperty(
+        "--primary",
+        primary
+    );
+
+
+    localStorage.setItem(
+        "siteBg",
+        bg
+    );
+
+
+    localStorage.setItem(
+        "sitePrimary",
+        primary
+    );
+
+
+    alert(
+        "Kolory zostały zapisane."
+    );
+
+}
+
+
+/* ==========================================
+   TŁO ZE ZDJĘCIA
+========================================== */
+
+function setBackground(event){
+
+    const file=
+        event.target.files[0];
+
+    if(!file){
+        return;
+    }
+
+
+    if(!file.type.startsWith("image/")){
+
+        alert(
+            "Wybierz plik graficzny."
+        );
+
+        return;
+
+    }
+
+
+    const reader=
+        new FileReader();
+
+
+    reader.onload=function(e){
+
+        const image=e.target.result;
+
+
+        document.body.style.backgroundImage=
+        "url(\""+
+        image+
+        "\")";
+
+
+        localStorage.setItem(
+            "siteBackground",
+            image
+        );
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+}
+
+
+function removeBackground(){
+
+    document.body.style.backgroundImage=
+    "none";
+
+    localStorage.removeItem(
+        "siteBackground"
+    );
+
+}
+
+
+/* ==========================================
+   AI DESIGNER
+========================================== */
+
+function runAIDesigner(){
+
+    const prompt=
+        $("aiPrompt")
+        .value
+        .toLowerCase();
+
+    const result=
+        $("aiResult");
+
+
+    let changed=false;
+
+
+    if(
+        prompt.includes("czarn") ||
+        prompt.includes("ciem")
+    ){
+
+        document.documentElement
+        .style
+        .setProperty(
+            "--bg",
+            "#050505"
+        );
+
+        $("bgColor").value="#050505";
+
+        changed=true;
+
+    }
+
+
+    if(prompt.includes("bia")){
+
+        document.documentElement
+        .style
+        .setProperty(
+            "--bg",
+            "#f5f5f5"
+        );
+
+        $("bgColor").value="#f5f5f5";
+
+        changed=true;
+
+    }
+
+
+    if(prompt.includes("fiolet")){
+
+        document.documentElement
+        .style
+        .setProperty(
+            "--primary",
+            "#7c5cff"
+        );
+
+        $("primaryColor").value="#7c5cff";
+
+        changed=true;
+
+    }
+
+
+    if(prompt.includes("niebies")){
+
+        document.documentElement
+        .style
+        .setProperty(
+            "--primary",
+            "#1683ff"
+        );
+
+        $("primaryColor").value="#1683ff";
+
+        changed=true;
+
+    }
+
+
+    if(prompt.includes("czerw")){
+
+        document.documentElement
+        .style
+        .setProperty(
+            "--primary",
+            "#ef4444"
+        );
+
+        $("primaryColor").value="#ef4444";
+
+        changed=true;
+
+    }
+
+
+    if(
+        prompt.includes("zielon")
+    ){
+
+        document.documentElement
+        .style
+        .setProperty(
+            "--primary",
+            "#22c55e"
+        );
+
+        $("primaryColor").value="#22c55e";
+
+        changed=true;
+
+    }
+
+
+    if(
+        prompt.includes("różow") ||
+        prompt.includes("rozow")
+    ){
+
+        document.documentElement
+        .style
+        .setProperty(
+            "--primary",
+            "#ec4899"
+        );
+
+        $("primaryColor").value="#ec4899";
+
+        changed=true;
+
+    }
+
+
+    if(changed){
+
+        saveColors();
+
+        result.className=
+        "message success";
+
+        result.textContent=
+        "✅ Zastosowano zmianę wyglądu.";
+
+    }else{
+
+        result.className=
+        "message error";
+
+        result.textContent=
+        "Spróbuj np. „czarne tło i niebieskie przyciski”.";
+
+    }
+
+}
+
+
+/* ==========================================
+   KODY RABATOWE
+========================================== */
+
+function getPromos(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem("promos")
+        ) || [];
+
+    }catch{
+
+        return [];
+
+    }
+
+}
+
+
+function savePromos(promos){
+
+    localStorage.setItem(
+        "promos",
+        JSON.stringify(promos)
+    );
+
+}
+
+
+function addPromo(){
+
+    const code=
+        $("promoCode")
+        .value
+        .trim()
+        .toUpperCase();
+
+    const discount=
+        Number(
+            $("promoDiscount").value
+        );
+
+
+    if(
+        !code ||
+        discount<1 ||
+        discount>100
+    ){
+
+        alert(
+            "Podaj kod oraz rabat od 1 do 100%."
+        );
+
+        return;
+
+    }
+
+
+    const promos=
+        getPromos();
+
+
+    if(
+        promos.some(
+            promo=>promo.code===code
+        )
+    ){
+
+        alert(
+            "Taki kod już istnieje."
+        );
+
+        return;
+
+    }
+
+
+    promos.push({
+
+        code:code,
+
+        discount:discount
+
+    });
+
+
+    savePromos(promos);
+
+    renderPromos();
+
+
+    $("promoCode").value="";
+
+    $("promoDiscount").value="";
+
+}
+
+
+function renderPromos(){
+
+    const list=
+        $("promoList");
+
+
+    if(!list){
+        return;
+    }
+
+
+    const promos=
+        getPromos();
+
+
+    list.innerHTML="";
+
+
+    promos.forEach(
+        (promo,index)=>{
+
+            const row=
+                document.createElement(
+                    "div"
+                );
+
+
+            row.style.marginTop=
+                "10px";
+
+
+            row.innerHTML=
+            "<b>"+
+            promo.code+
+            "</b> — "+
+            promo.discount+
+            "% ";
+
+
+            const button=
+                document.createElement(
+                    "button"
+                );
+
+
+            button.className=
+                "secondary";
+
+
+            button.textContent=
+                "Usuń";
+
+
+            button.style.marginLeft=
+                "8px";
+
+
+            button.onclick=
+                function(){
+
+                    deletePromo(index);
+
+                };
+
+
+            row.appendChild(
+                button
+            );
+
+
+            list.appendChild(
+                row
+            );
+
+        }
+    );
+
+}
+
+
+function deletePromo(index){
+
+    const promos=
+        getPromos();
+
+
+    promos.splice(
+        index,
+        1
+    );
+
+
+    savePromos(promos);
+
+    renderPromos();
+
+}
+
+
+/* ==========================================
+   WCZYTANIE USTAWIEŃ
+========================================== */
+
+function loadDesign(){
+
+    const bg=
+        localStorage.getItem(
+            "siteBg"
+        );
+
+    const primary=
+        localStorage.getItem(
+            "sitePrimary"
+        );
+
+    const background=
+        localStorage.getItem(
+            "siteBackground"
+        );
+
+
+    if(bg){
+
+        document.documentElement
+        .style
+        .setProperty(
+            "--bg",
+            bg
+        );
+
+        if($("bgColor")){
+            $("bgColor").value=bg;
+        }
+
+    }
+
+
+    if(primary){
+
+        document.documentElement
+        .style
+        .setProperty(
+            "--primary",
+            primary
+        );
+
+        if($("primaryColor")){
+            $("primaryColor").value=primary;
+        }
+
+    }
+
+
+    if(background){
+
+        document.body.style.backgroundImage=
+        "url(\""+
+        background+
+        "\")";
+
+    }
+
+}
+
+
+/* ==========================================
+   START
+========================================== */
+
+async function start(){
+
+    loadDesign();
+
+
+    const result=
+        await supabaseClient.auth.getSession();
+
+
+    if(result.error){
+
+        console.error(
+            result.error
+        );
+
+        return;
+
+    }
+
+
+    const session=
+        result.data.session;
+
+
+    if(session){
+
+        await loadUser(
+            session.user
+        );
+
+    }
+
+}
+
+
+supabaseClient.auth.onAuthStateChange(
+    async(event,session)=>{
+
+        if(
+            event==="SIGNED_IN" &&
+            session
+        ){
+
+            await loadUser(
+                session.user
+            );
+
+        }
+
+    }
+);
 
 
 start();
@@ -1358,3 +1882,29 @@ start();
 
 </body>
 </html>
+```
+
+### Teraz robisz tylko 3 rzeczy
+
+**1.** W kodzie znajdź:
+
+```js
+const SUPABASE_URL = "WKLEJ_TUTAJ_API_URL";
+```
+
+Wklej tam swój **API URL** z Supabase.
+
+**2.** Znajdź:
+
+```js
+const SUPABASE_KEY = "WKLEJ_TUTAJ_PUBLISHABLE_KEY";
+```
+
+Wklej tam swój **`sb_publishable_...`**.
+
+**3.** Kliknij na GitHubie **Commit changes**.
+
+⚠️ **Nie wklejaj mi tutaj żadnego klucza ani hasła.**
+
+**Ważne:** AI Designer w tej wersji jest lokalnym projektantem opartym na poleceniach (np. „czarne tło i niebieskie przyciski”), a nie prawdziwym połączeniem z ChatGPT. Prawdziwe AI podłączymy później bez wystawiania klucza API w `index.html`.
+
