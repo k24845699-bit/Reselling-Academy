@@ -1,29 +1,23 @@
-```html
 <!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Reselling Academy</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 :root{
     --bg:#08090d;
     --card:#11131a;
     --border:#252833;
-    --text:#ffffff;
+    --text:#fff;
     --muted:#9296a3;
     --primary:#7c5cff;
-    --primary-hover:#6847ed;
 }
 
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:Arial,sans-serif;
-}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
 
 body{
     background:var(--bg);
@@ -47,45 +41,23 @@ header{
 .nav{
     max-width:1200px;
     margin:auto;
-    min-height:72px;
+    min-height:70px;
+    padding:12px 20px;
     display:flex;
     align-items:center;
     justify-content:space-between;
     gap:15px;
-    padding:12px 20px;
 }
 
-.logo{
-    font-size:22px;
-    font-weight:800;
-}
+.logo{font-size:22px;font-weight:800}
+.logo span{color:var(--primary)}
 
-.logo span{
-    color:var(--primary);
-}
-
-nav{
-    display:flex;
-    gap:22px;
-}
-
-nav a{
-    color:#b7bac5;
-    text-decoration:none;
-    cursor:pointer;
-}
-
-nav a:hover{
-    color:white;
-}
-
-.nav-buttons{
-    display:flex;
-    gap:10px;
-}
+nav{display:flex;gap:22px}
+nav a{color:#bbb;text-decoration:none;cursor:pointer}
+nav a:hover{color:white}
 
 button{
-    border:none;
+    border:0;
     cursor:pointer;
     border-radius:10px;
     padding:12px 18px;
@@ -97,14 +69,15 @@ button{
     color:white;
 }
 
-.primary:hover{
-    background:var(--primary-hover);
-}
-
 .secondary{
     background:transparent;
     color:white;
     border:1px solid #30333e;
+}
+
+.nav-buttons{
+    display:flex;
+    gap:10px;
 }
 
 .hero{
@@ -116,11 +89,11 @@ button{
 
 .badge{
     display:inline-block;
+    padding:8px 14px;
+    border-radius:30px;
     background:rgba(124,92,255,.15);
     color:#b29fff;
     border:1px solid rgba(124,92,255,.4);
-    padding:8px 14px;
-    border-radius:30px;
     margin-bottom:25px;
 }
 
@@ -130,9 +103,7 @@ button{
     margin-bottom:25px;
 }
 
-.hero h1 span{
-    color:var(--primary);
-}
+.hero h1 span{color:var(--primary)}
 
 .hero p{
     max-width:650px;
@@ -164,7 +135,7 @@ button{
 
 .section-subtitle{
     text-align:center;
-    color:#888d9b;
+    color:#888;
     margin-bottom:45px;
 }
 
@@ -181,9 +152,7 @@ button{
     padding:30px;
 }
 
-.card.pro{
-    border-color:var(--primary);
-}
+.card.pro{border-color:var(--primary)}
 
 .card h3{
     font-size:25px;
@@ -208,19 +177,16 @@ button{
 
 .features li{
     margin:13px 0;
-    color:#c6c8d0;
+    color:#ccc;
 }
 
 .features li::before{
     content:"✓";
     color:var(--primary);
-    font-weight:bold;
     margin-right:10px;
 }
 
-.full-btn{
-    width:100%;
-}
+.full-btn{width:100%}
 
 .panel{
     display:none;
@@ -234,11 +200,6 @@ button{
     border:1px solid var(--border);
     border-radius:20px;
     padding:30px;
-}
-
-.panel-description{
-    color:var(--muted);
-    margin:10px 0 25px;
 }
 
 .admin-grid{
@@ -255,30 +216,21 @@ button{
     margin-bottom:20px;
 }
 
-.admin-card h3{
-    margin-bottom:10px;
-}
+.admin-card h3{margin-bottom:10px}
+.admin-card p{color:var(--muted);margin-bottom:15px}
 
-.admin-card p{
-    color:var(--muted);
-    line-height:1.5;
-}
-
-.input,
-.textarea,
-.select{
+.input,.textarea{
     width:100%;
     padding:14px;
-    margin:10px 0;
+    margin:8px 0;
     background:#08090d;
     color:white;
     border:1px solid #30333e;
     border-radius:10px;
-    outline:none;
 }
 
 .textarea{
-    min-height:130px;
+    min-height:120px;
     resize:vertical;
 }
 
@@ -286,48 +238,17 @@ button{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:15px;
     margin:15px 0;
 }
 
 .color-input{
     width:70px;
     height:45px;
-    border:0;
-    background:none;
 }
 
 .file-input{
     width:100%;
-    margin:12px 0;
-}
-
-.preview{
-    width:100%;
-    height:150px;
-    border-radius:12px;
-    background:#08090d;
-    background-size:cover;
-    background-position:center;
-    border:1px solid var(--border);
     margin:15px 0;
-}
-
-.ai-result{
-    margin-top:15px;
-    padding:15px;
-    background:#0b0c11;
-    border:1px solid var(--border);
-    border-radius:12px;
-    color:#c6c8d0;
-}
-
-.item{
-    background:#0d0f15;
-    border:1px solid var(--border);
-    border-radius:12px;
-    padding:15px;
-    margin:10px 0;
 }
 
 .modal{
@@ -352,15 +273,10 @@ button{
 
 .close{
     float:right;
-    background:transparent;
+    background:none;
     color:#aaa;
     font-size:22px;
     padding:0;
-}
-
-.switch{
-    color:#9b8cff;
-    cursor:pointer;
 }
 
 .message{
@@ -368,36 +284,19 @@ button{
     font-size:14px;
 }
 
-.success{
-    color:#67e8a5;
-}
-
-.error{
-    color:#ff7777;
-}
+.success{color:#67e8a5}
+.error{color:#ff7777}
 
 footer{
     border-top:1px solid var(--border);
     text-align:center;
-    padding:35px 20px;
+    padding:35px;
     color:#737784;
-    margin-top:50px;
 }
 
 @media(max-width:800px){
-
-    nav{
-        display:none;
-    }
-
-    .cards,
-    .admin-grid{
-        grid-template-columns:1fr;
-    }
-
-    .hero{
-        padding-top:70px;
-    }
+    nav{display:none}
+    .cards,.admin-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -405,7 +304,6 @@ footer{
 <body>
 
 <header>
-
 <div class="nav">
 
 <div class="logo">
@@ -419,17 +317,11 @@ Reselling <span>Academy</span>
 </nav>
 
 <div class="nav-buttons">
-<button class="secondary" onclick="openModal('login')">
-Zaloguj się
-</button>
-
-<button class="primary" onclick="openModal('register')">
-Załóż konto
-</button>
+<button class="secondary" onclick="openModal('login')">Zaloguj się</button>
+<button class="primary" onclick="openModal('register')">Załóż konto</button>
 </div>
 
 </div>
-
 </header>
 
 
@@ -437,9 +329,7 @@ Załóż konto
 
 <section class="hero">
 
-<div class="badge">
-🚀 Naucz się resellingu
-</div>
+<div class="badge">🚀 Reselling Academy</div>
 
 <h1>
 Zacznij swój<br>
@@ -447,8 +337,8 @@ Zacznij swój<br>
 </h1>
 
 <p>
-Praktyczna wiedza, produkty, dostawcy
-i strategie sprzedaży online.
+Wiedza, produkty, dostawcy i strategie
+sprzedaży online.
 </p>
 
 <div class="hero-buttons">
@@ -470,62 +360,100 @@ Załóż konto
 
 <section class="section" id="courses">
 
-<h2 class="section-title">
-Wybierz swój pakiet
-</h2>
+<h2 class="section-title">Wybierz swój pakiet</h2>
 
 <p class="section-subtitle">
-Wybierz pakiet dopasowany do siebie.
-</p>
-
-<div class="cards" id="products"></div>
-
-</section>
-
-
-<section class="section">
-
-<h2 class="section-title">
-Dlaczego Reselling Academy?
-</h2>
-
-<p class="section-subtitle">
-Wszystko w jednym miejscu.
+Wybierz pakiet dla siebie.
 </p>
 
 <div class="cards">
 
 <div class="card">
-<h3>📚 Wiedza</h3>
+
+<h3>📦 Reselling od zera</h3>
+
 <p>
-Materiały dla początkujących
-i zaawansowanych.
+Podstawy resellingu i dostęp do dostawcy.
 </p>
+
+<div class="price">29,99 zł</div>
+
+<ul class="features">
+<li>Podstawy resellingu</li>
+<li>Szukanie produktów</li>
+<li>Wycena produktów</li>
+<li>Podstawy sprzedaży</li>
+<li>Dostęp do dostawcy</li>
+</ul>
+
+<button class="primary full-btn"
+onclick="buy('Reselling od zera',29.99)">
+Kup teraz
+</button>
+
 </div>
+
+
+<div class="card pro">
+
+<div class="badge">⭐ POLECANY</div>
+
+<h3>🚀 Reselling Pro</h3>
+
+<p>
+Wszystko z Reselling od zera oraz zaawansowane materiały.
+</p>
+
+<div class="price">59,99 zł</div>
+
+<ul class="features">
+<li>Wszystko z pakietu podstawowego</li>
+<li>Zaawansowane strategie</li>
+<li>Wyszukiwanie okazji</li>
+<li>Skalowanie sprzedaży</li>
+<li>Materiały Pro</li>
+</ul>
+
+<button class="primary full-btn"
+onclick="buy('Reselling Pro',59.99)">
+Kup Pro
+</button>
+
+</div>
+
 
 <div class="card">
-<h3>📦 Dostawcy</h3>
+
+<h3>👑 Mentoring</h3>
+
 <p>
-Informacje o produktach
-i dostawcach.
+Wszystko z Reselling od zera i Reselling Pro oraz materiały mentoringowe.
 </p>
+
+<div class="price">100 zł</div>
+
+<ul class="features">
+<li>Reselling od zera</li>
+<li>Wszystko z Reselling Pro</li>
+<li>Materiały Mentoring</li>
+<li>Strategie rozwoju</li>
+<li>Pełny dostęp</li>
+</ul>
+
+<button class="primary full-btn"
+onclick="buy('Mentoring',100)">
+Kup Mentoring
+</button>
+
 </div>
 
-<div class="card">
-<h3>💰 Sprzedaż</h3>
-<p>
-Strategie wyceny i sprzedaży.
-</p>
 </div>
-
-</div>
-
 </section>
 
 </main>
 
 
-<!-- DASHBOARD -->
+<!-- PANEL UŻYTKOWNIKA -->
 
 <section class="panel" id="dashboard">
 
@@ -533,12 +461,18 @@ Strategie wyceny i sprzedaży.
 
 <h2>👤 Panel użytkownika</h2>
 
-<p class="panel-description" id="welcome"></p>
+<p id="welcome"></p>
 
-<div id="userCourses"></div>
+<br>
 
-<button class="secondary"
-onclick="logout()">
+<div class="card">
+<h3>📚 Twoje kursy</h3>
+<p>Po zakupie kurs będzie dostępny tutaj.</p>
+</div>
+
+<br>
+
+<button class="secondary" onclick="logout()">
 Wyloguj się
 </button>
 
@@ -547,37 +481,35 @@ Wyloguj się
 </section>
 
 
-<!-- ADMIN -->
+<!-- PANEL ADMINA -->
 
 <section class="panel" id="adminPanel">
 
 <div class="panel-box">
 
-<h2>🛠️ Panel administratora</h2>
+<h2>👑 Panel administratora</h2>
 
-<p class="panel-description">
-Zarządzaj stroną, produktami, promocjami
-i wyglądem.
+<p>
+Zarządzaj wyglądem strony.
 </p>
 
+<br>
 
 <div class="admin-grid">
 
-
-<!-- AI -->
 
 <div class="admin-card">
 
 <h3>🤖 AI Designer</h3>
 
 <p>
-Napisz, jak ma wyglądać strona.
+Opisz AI, jak ma wyglądać strona.
 </p>
 
 <textarea
 class="textarea"
 id="aiPrompt"
-placeholder="Np. Zrób czarne tło, czerwone przyciski i nowoczesny wygląd.">
+placeholder="Np. Zrób czarne tło, fioletowe przyciski i nowoczesny wygląd.">
 </textarea>
 
 <button class="primary full-btn"
@@ -585,22 +517,17 @@ onclick="runAI()">
 ✨ Zastosuj przez AI
 </button>
 
-<div class="ai-result"
-id="aiResult">
-AI Designer jest gotowy.
-</div>
+<p id="aiResult"></p>
 
 </div>
 
-
-<!-- COLORS -->
 
 <div class="admin-card">
 
-<h3>🎨 Ręczny wygląd</h3>
+<h3>🎨 Ręczna zmiana wyglądu</h3>
 
 <div class="color-row">
-<span>Tło</span>
+<span>Kolor tła</span>
 
 <input
 type="color"
@@ -610,7 +537,7 @@ value="#08090d">
 </div>
 
 <div class="color-row">
-<span>Przyciski</span>
+<span>Kolor przycisków</span>
 
 <input
 type="color"
@@ -627,11 +554,9 @@ onclick="applyColors()">
 </div>
 
 
-<!-- IMAGE -->
-
 <div class="admin-card">
 
-<h3>🖼️ Własne tło</h3>
+<h3>🖼️ Własne zdjęcie tła</h3>
 
 <p>
 Wybierz zdjęcie z telefonu lub komputera.
@@ -640,55 +565,16 @@ Wybierz zdjęcie z telefonu lub komputera.
 <input
 class="file-input"
 type="file"
-id="backgroundFile"
 accept="image/*"
-onchange="loadBackground(event)">
-
-<div class="preview"
-id="imagePreview">
-</div>
+onchange="changeBackground(event)">
 
 <button class="secondary full-btn"
 onclick="removeBackground()">
-Usuń zdjęcie tła
+Usuń zdjęcie
 </button>
 
 </div>
 
-
-<!-- PRODUCTS -->
-
-<div class="admin-card">
-
-<h3>📦 Dodaj produkt/kurs</h3>
-
-<input
-class="input"
-id="newProductName"
-placeholder="Nazwa">
-
-<input
-class="input"
-id="newProductPrice"
-type="number"
-step="0.01"
-placeholder="Cena">
-
-<textarea
-class="textarea"
-id="newProductDescription"
-placeholder="Opis produktu">
-</textarea>
-
-<button class="primary full-btn"
-onclick="addProduct()">
-➕ Dodaj
-</button>
-
-</div>
-
-
-<!-- PROMO -->
 
 <div class="admin-card">
 
@@ -697,7 +583,7 @@ onclick="addProduct()">
 <input
 class="input"
 id="promoCode"
-placeholder="Kod np. START10">
+placeholder="Np. START10">
 
 <input
 class="input"
@@ -709,41 +595,19 @@ placeholder="Rabat %">
 
 <button class="primary full-btn"
 onclick="addPromo()">
-➕ Dodaj kod
+Dodaj kod
 </button>
 
 <div id="promoList"></div>
 
 </div>
 
-
-<!-- ANNOUNCEMENTS -->
-
-<div class="admin-card">
-
-<h3>📢 Ogłoszenie</h3>
-
-<textarea
-class="textarea"
-id="announcement"
-placeholder="Treść ogłoszenia">
-</textarea>
-
-<button class="primary full-btn"
-onclick="saveAnnouncement()">
-💾 Zapisz ogłoszenie
-</button>
-
 </div>
-
-</div>
-
 
 <br>
 
-<button class="secondary"
-onclick="closeAdmin()">
-← Wróć
+<button class="secondary" onclick="showHome()">
+← Wróć na stronę
 </button>
 
 </div>
@@ -756,16 +620,13 @@ onclick="closeAdmin()">
 </footer>
 
 
-<!-- LOGIN -->
+<!-- LOGOWANIE -->
 
 <div class="modal" id="loginModal">
 
 <div class="modal-box">
 
-<button class="close"
-onclick="closeModals()">
-×
-</button>
+<button class="close" onclick="closeModals()">×</button>
 
 <h2>Logowanie</h2>
 
@@ -786,36 +647,20 @@ onclick="login()">
 Zaloguj się
 </button>
 
-<p
-class="message"
-id="loginMessage">
-</p>
-
-<p style="margin-top:18px;color:#888">
-Nie masz konta?
-
-<span
-class="switch"
-onclick="switchModal('register')">
-Zarejestruj się
-</span>
-</p>
+<p class="message" id="loginMessage"></p>
 
 </div>
 
 </div>
 
 
-<!-- REGISTER -->
+<!-- REJESTRACJA -->
 
 <div class="modal" id="registerModal">
 
 <div class="modal-box">
 
-<button class="close"
-onclick="closeModals()">
-×
-</button>
+<button class="close" onclick="closeModals()">×</button>
 
 <h2>Utwórz konto</h2>
 
@@ -841,55 +686,7 @@ onclick="register()">
 Utwórz konto
 </button>
 
-<p
-class="message"
-id="registerMessage">
-</p>
-
-</div>
-
-</div>
-
-
-<!-- CHECKOUT -->
-
-<div class="modal" id="checkoutModal">
-
-<div class="modal-box">
-
-<button class="close"
-onclick="closeCheckout()">
-×
-</button>
-
-<h2>🛒 Zamówienie</h2>
-
-<p id="checkoutProduct"></p>
-
-<input
-class="input"
-id="discountInput"
-placeholder="Kod rabatowy">
-
-<button
-class="secondary full-btn"
-onclick="applyDiscount()">
-Zastosuj kod
-</button>
-
-<p id="checkoutPrice"
-style="margin:15px 0;font-size:22px;font-weight:bold">
-</p>
-
-<button class="primary full-btn"
-onclick="confirmPurchase()">
-Przejdź do płatności
-</button>
-
-<p
-class="message"
-id="checkoutMessage">
-</p>
+<p class="message" id="registerMessage"></p>
 
 </div>
 
@@ -898,25 +695,42 @@ id="checkoutMessage">
 
 <script>
 
-let products =
-JSON.parse(localStorage.getItem("products")) || [
+/* =========================================
+   SUPABASE
+   WPISZ TUTAJ SWÓJ PROJECT URL I
+   PUBLISHABLE KEY
+========================================= */
+
+const SUPABASE_URL = "\https://vrlradzprbqwrfbbvdtm.supabase.co/rest/v1/";
+
+const SUPABASE_KEY = "sb_publishable_8r0ljEKqUz7LBvO0QeaZTw_diesOw-t";
+
+const supabaseClient =
+supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+
+/* =========================================
+   PRODUKTY
+========================================= */
+
+const products = [
 
 {
-name:"📦 Reselling od zera",
-price:29.99,
-description:"Podstawy resellingu, produkty, wycena i dostęp do dostawcy."
+name:"Reselling od zera",
+price:29.99
 },
 
 {
-name:"🚀 Reselling Pro",
-price:59.99,
-description:"Wszystko z Reselling od zera oraz zaawansowane strategie."
+name:"Reselling Pro",
+price:59.99
 },
 
 {
-name:"👑 Mentoring",
-price:100,
-description:"Reselling od zera + Pro + materiały mentoringowe."
+name:"Mentoring",
+price:100
 }
 
 ];
@@ -925,176 +739,232 @@ description:"Reselling od zera + Pro + materiały mentoringowe."
 let promos =
 JSON.parse(localStorage.getItem("promos")) || [];
 
-
 let selectedProduct = null;
 let selectedPrice = 0;
 let selectedDiscount = 0;
 
 
-/* PRODUCTS */
+/* =========================================
+   MODALE
+========================================= */
 
-function renderProducts(){
+function openModal(type){
 
-const container =
-document.getElementById("products");
+closeModals();
 
-container.innerHTML="";
+if(type==="login")
+document.getElementById("loginModal").style.display="flex";
 
-products.forEach((product,index)=>{
+if(type==="register")
+document.getElementById("registerModal").style.display="flex";
 
-const card =
-document.createElement("div");
-
-card.className="card";
-
-if(index===1){
-card.classList.add("pro");
 }
 
-card.innerHTML=`
 
-<h3>${escapeHTML(product.name)}</h3>
+function closeModals(){
 
-<p>
-${escapeHTML(product.description)}
-</p>
+document.getElementById("loginModal").style.display="none";
 
-<div class="price">
-${Number(product.price).toFixed(2)} zł
-</div>
+document.getElementById("registerModal").style.display="none";
 
-<ul class="features">
+}
 
-<li>Dostęp do materiałów</li>
-<li>Materiały resellingowe</li>
-<li>Aktualizacje</li>
 
-</ul>
+/* =========================================
+   REJESTRACJA SUPABASE
+========================================= */
 
-<button
-class="primary full-btn"
-onclick="buyProduct(${index})">
+async function register(){
 
-Kup teraz
+const name =
+document.getElementById("registerName").value.trim();
 
-</button>
+const email =
+document.getElementById("registerEmail").value.trim();
 
-`;
+const password =
+document.getElementById("registerPassword").value;
 
-container.appendChild(card);
+const message =
+document.getElementById("registerMessage");
+
+
+if(!name || !email || !password){
+
+message.className="message error";
+message.textContent="Uzupełnij wszystkie pola.";
+return;
+
+}
+
+if(password.length<6){
+
+message.className="message error";
+message.textContent="Hasło musi mieć minimum 6 znaków.";
+return;
+
+}
+
+
+const {data,error} =
+await supabaseClient.auth.signUp({
+
+email:email,
+password:password
 
 });
 
-}
 
-
-/* BUY */
-
-function buyProduct(index){
-
-if(
-localStorage.getItem("loggedIn")!=="true"
-){
-
-openModal("login");
-
-return;
-}
-
-selectedProduct=products[index];
-
-selectedPrice=Number(selectedProduct.price);
-
-selectedDiscount=0;
-
-document.getElementById("checkoutProduct").textContent=
-selectedProduct.name;
-
-document.getElementById("checkoutPrice").textContent=
-"Cena: "+selectedPrice.toFixed(2)+" zł";
-
-document.getElementById("discountInput").value="";
-
-document.getElementById("checkoutModal").style.display="flex";
-
-}
-
-
-/* DISCOUNT */
-
-function applyDiscount(){
-
-const code=
-document.getElementById("discountInput")
-.value
-.trim()
-.toUpperCase();
-
-const promo=
-promos.find(p=>p.code===code);
-
-const message=
-document.getElementById("checkoutMessage");
-
-if(!promo){
+if(error){
 
 message.className="message error";
-
-message.textContent=
-"Nieprawidłowy kod rabatowy.";
-
+message.textContent=error.message;
 return;
+
 }
 
-selectedDiscount=
-Number(promo.discount);
 
-const finalPrice=
-selectedPrice*
-(1-selectedDiscount/100);
+if(data.user){
 
-document.getElementById("checkoutPrice").textContent=
-"Cena po rabacie: "+
-finalPrice.toFixed(2)+" zł";
+const {error:profileError} =
+await supabaseClient
+.from("profiles")
+.insert({
+
+id:data.user.id,
+name:name,
+email:email,
+is_admin:false
+
+});
+
+
+if(profileError){
+
+console.log(profileError);
+
+}
+
+}
+
 
 message.className="message success";
 
 message.textContent=
-"Rabat "+selectedDiscount+"% został zastosowany.";
+"Konto utworzone. Sprawdź e-mail, jeśli Supabase wymaga potwierdzenia.";
 
 }
 
 
-/* CONFIRM */
+/* =========================================
+   LOGOWANIE
+========================================= */
 
-function confirmPurchase(){
+async function login(){
 
-const finalPrice=
-selectedPrice*
-(1-selectedDiscount/100);
+const email =
+document.getElementById("loginEmail").value.trim();
 
-alert(
-"Wybrano: "+
-selectedProduct.name+
-"\nCena: "+
-finalPrice.toFixed(2)+
-" zł\n\nPrawdziwe płatności podłączymy później."
-);
+const password =
+document.getElementById("loginPassword").value;
 
-closeCheckout();
+const message =
+document.getElementById("loginMessage");
+
+
+const {data,error} =
+await supabaseClient.auth.signInWithPassword({
+
+email:email,
+password:password
+
+});
+
+
+if(error){
+
+message.className="message error";
+message.textContent=error.message;
+return;
 
 }
 
 
-function closeCheckout(){
+await loadUser(data.user);
 
-document.getElementById("checkoutModal")
-.style.display="none";
+closeModals();
 
 }
 
 
-/* ADMIN */
+/* =========================================
+   SPRAWDZENIE UŻYTKOWNIKA
+========================================= */
+
+async function loadUser(user){
+
+const {data,error} =
+await supabaseClient
+.from("profiles")
+.select("*")
+.eq("id",user.id)
+.single();
+
+
+if(error){
+
+console.log(error);
+showHome();
+return;
+
+}
+
+
+if(data.is_admin){
+
+showAdmin();
+
+}else{
+
+showDashboard(data);
+
+}
+
+}
+
+
+/* =========================================
+   PANEL UŻYTKOWNIKA
+========================================= */
+
+function showDashboard(user){
+
+document.getElementById("home").style.display="none";
+
+document.getElementById("adminPanel").style.display="none";
+
+document.getElementById("dashboard").style.display="block";
+
+document.getElementById("welcome").textContent=
+"Witaj, "+user.name+"! 👋";
+
+}
+
+
+function showHome(){
+
+document.getElementById("home").style.display="block";
+
+document.getElementById("dashboard").style.display="none";
+
+document.getElementById("adminPanel").style.display="none";
+
+}
+
+
+/* =========================================
+   ADMIN
+========================================= */
 
 function showAdmin(){
 
@@ -1109,73 +979,55 @@ renderPromos();
 }
 
 
-function closeAdmin(){
+/* =========================================
+   WYLOGOWANIE
+========================================= */
 
-document.getElementById("adminPanel").style.display="none";
+async function logout(){
 
-document.getElementById("home").style.display="block";
+await supabaseClient.auth.signOut();
+
+showHome();
 
 }
 
 
-/* ADD PRODUCT */
+/* =========================================
+   ZAKUP
+========================================= */
 
-function addProduct(){
+function buy(name,price){
 
-const name=
-document.getElementById("newProductName").value.trim();
+selectedProduct=name;
+selectedPrice=price;
 
-const price=
-Number(document.getElementById("newProductPrice").value);
-
-const description=
-document.getElementById("newProductDescription").value.trim();
-
-if(!name || !price){
-
-alert("Uzupełnij nazwę i cenę.");
-
-return;
-}
-
-products.push({
-name:name,
-price:price,
-description:description
-});
-
-localStorage.setItem(
-"products",
-JSON.stringify(products)
+alert(
+"Wybrano "+name+
+" za "+price.toFixed(2)+
+" zł.\n\nPrawdziwe płatności podłączymy później."
 );
 
-renderProducts();
-
-alert("Produkt dodany.");
-
 }
 
 
-/* PROMOS */
+/* =========================================
+   KODY RABATOWE
+========================================= */
 
 function addPromo(){
 
-const code=
+const code =
 document.getElementById("promoCode")
-.value
-.trim()
-.toUpperCase();
+.value.trim().toUpperCase();
 
-const discount=
-Number(
-document.getElementById("promoDiscount").value
-);
+const discount =
+Number(document.getElementById("promoDiscount").value);
 
-if(!code || !discount){
+if(!code || discount<1 || discount>100){
 
-alert("Uzupełnij kod i rabat.");
-
+alert("Wpisz poprawny kod i rabat 1–100%.");
 return;
+
 }
 
 promos.push({
@@ -1190,20 +1042,12 @@ JSON.stringify(promos)
 
 renderPromos();
 
-alert(
-"Utworzono kod "+
-code+
-" - "+
-discount+
-"%"
-);
-
 }
 
 
 function renderPromos(){
 
-const list=
+const list =
 document.getElementById("promoList");
 
 if(!list)return;
@@ -1212,30 +1056,18 @@ list.innerHTML="";
 
 promos.forEach((promo,index)=>{
 
-const item=
-document.createElement("div");
+const div=document.createElement("div");
 
-item.className="item";
+div.style.marginTop="10px";
 
-item.innerHTML=`
+div.innerHTML=
+"<b>"+promo.code+"</b> — "+
+promo.discount+"% "+
+"<button class='secondary' onclick='deletePromo("+
+index+
+")'>Usuń</button>";
 
-<b>${escapeHTML(promo.code)}</b>
--
-${promo.discount}%
-
-<br><br>
-
-<button
-class="secondary"
-onclick="deletePromo(${index})">
-
-Usuń
-
-</button>
-
-`;
-
-list.appendChild(item);
+list.appendChild(div);
 
 });
 
@@ -1256,74 +1088,61 @@ renderPromos();
 }
 
 
-/* COLORS */
+/* =========================================
+   KOLORY
+========================================= */
 
 function applyColors(){
 
-const bg=
+const bg =
 document.getElementById("bgColor").value;
 
-const primary=
+const primary =
 document.getElementById("primaryColor").value;
 
 document.documentElement.style.setProperty(
-"--bg",
-bg
+"--bg",bg
 );
 
 document.documentElement.style.setProperty(
-"--primary",
-primary
+"--primary",primary
 );
 
-localStorage.setItem(
-"siteBg",
-bg
-);
+localStorage.setItem("siteBg",bg);
+localStorage.setItem("sitePrimary",primary);
 
-localStorage.setItem(
-"sitePrimary",
-primary
-);
-
-alert("Kolory zapisane.");
+alert("Wygląd zapisany.");
 
 }
 
 
-/* IMAGE */
+/* =========================================
+   WŁASNE ZDJĘCIE
+========================================= */
 
-function loadBackground(event){
+function changeBackground(event){
 
-const file=
-event.target.files[0];
+const file=event.target.files[0];
 
 if(!file)return;
 
 if(!file.type.startsWith("image/")){
 
-alert("Wybierz plik graficzny.");
-
+alert("Wybierz zdjęcie.");
 return;
+
 }
 
-const reader=
-new FileReader();
+const reader=new FileReader();
 
 reader.onload=function(e){
 
-const image=e.target.result;
-
 document.body.style.backgroundImage=
-"url('"+image+"')";
-
-document.getElementById("imagePreview")
-.style.backgroundImage=
-"url('"+image+"')";
+"url('"+e.target.result+"')";
 
 localStorage.setItem(
 "siteBackgroundImage",
-image
+e.target.result
 );
 
 };
@@ -1337,9 +1156,6 @@ function removeBackground(){
 
 document.body.style.backgroundImage="none";
 
-document.getElementById("imagePreview")
-.style.backgroundImage="none";
-
 localStorage.removeItem(
 "siteBackgroundImage"
 );
@@ -1347,478 +1163,131 @@ localStorage.removeItem(
 }
 
 
-/* AI TEST */
+/* =========================================
+   AI DESIGNER — TEST
+========================================= */
 
 function runAI(){
 
-const prompt=
+const prompt =
 document.getElementById("aiPrompt")
-.value
-.toLowerCase()
-.trim();
+.value.toLowerCase();
 
-const result=
+const result =
 document.getElementById("aiResult");
 
-if(!prompt){
-
-result.textContent=
-"Napisz, co chcesz zmienić.";
-
-return;
-}
-
-
-let changes=[];
+let changed=false;
 
 
 /* TŁO */
 
-if(
-prompt.includes("czarne") ||
-prompt.includes("czarn")
-){
+if(prompt.includes("czarn")){
 
 document.documentElement.style.setProperty(
-"--bg",
-"#050505"
+"--bg","#050505"
 );
 
-changes.push("czarne tło");
+changed=true;
 
 }
 
-
-if(
-prompt.includes("białe") ||
-prompt.includes("bial")
-){
+if(prompt.includes("bia")){
 
 document.documentElement.style.setProperty(
-"--bg",
-"#f5f5f5"
+"--bg","#f5f5f5"
 );
 
 document.documentElement.style.setProperty(
-"--text",
-"#111111"
+"--text","#111"
 );
 
-changes.push("jasne tło");
+changed=true;
 
 }
 
 
 /* KOLORY */
 
-const colors={
-
-"fiolet":"#7c5cff",
-"niebies":"#1683ff",
-"czerw":"#ef4444",
-"zielon":"#22c55e",
-"różow":"#ec4899",
-"rozow":"#ec4899",
-"pomarańcz":"#f97316",
-"pomarancz":"#f97316",
-"żółt":"#eab308",
-"zolt":"#eab308"
-
-};
-
-
-for(const key in colors){
-
-if(prompt.includes(key)){
+if(prompt.includes("fiolet")){
 
 document.documentElement.style.setProperty(
-"--primary",
-colors[key]
+"--primary","#7c5cff"
 );
 
-changes.push(
-"kolor "+key
-);
-
-break;
+changed=true;
 
 }
 
+else if(prompt.includes("niebies")){
+
+document.documentElement.style.setProperty(
+"--primary","#1683ff"
+);
+
+changed=true;
+
 }
 
-
-/* RESET */
-
-if(
-prompt.includes("fioletowe") &&
-prompt.includes("czarne")
-){
+else if(prompt.includes("czerw")){
 
 document.documentElement.style.setProperty(
-"--bg",
-"#050505"
+"--primary","#ef4444"
 );
 
+changed=true;
+
+}
+
+else if(prompt.includes("zielon")){
+
 document.documentElement.style.setProperty(
-"--primary",
-"#7c5cff"
+"--primary","#22c55e"
 );
+
+changed=true;
+
+}
+
+else if(prompt.includes("różow") ||
+prompt.includes("rozow")){
+
+document.documentElement.style.setProperty(
+"--primary","#ec4899"
+);
+
+changed=true;
 
 }
 
 
-/* ZAPIS */
+if(changed){
 
-localStorage.setItem(
-"siteBg",
-getComputedStyle(document.documentElement)
-.getPropertyValue("--bg")
-);
+result.className="message success";
 
-localStorage.setItem(
-"sitePrimary",
-getComputedStyle(document.documentElement)
-.getPropertyValue("--primary")
-);
-
-
-if(changes.length){
-
-result.innerHTML=
-"✅ Zmieniono: "+
-changes.join(", ")+
-".<br><br>"+
-"<small>To jest jeszcze testowa wersja AI. Prawdziwe ChatGPT podłączymy przez backend.</small>";
+result.textContent=
+"✅ Zastosowano zmianę testową.";
 
 }else{
 
-result.innerHTML=
-"ℹ️ Nie rozpoznałem jeszcze tej zmiany.<br><br>"+
-"Spróbuj np.:<br>"+
-"„czarne tło i czerwone przyciski”";
+result.className="message error";
+
+result.textContent=
+"Nie rozpoznałem jeszcze polecenia. Spróbuj np. „czarne tło i fioletowe przyciski”.";
 
 }
 
 }
 
 
-/* ANNOUNCEMENT */
+/* =========================================
+   START
+========================================= */
 
-function saveAnnouncement(){
+async function start(){
 
-const text=
-document.getElementById("announcement")
-.value
-.trim();
+const bg=localStorage.getItem("siteBg");
 
-if(!text){
-
-alert("Wpisz ogłoszenie.");
-
-return;
-}
-
-localStorage.setItem(
-"announcement",
-text
-);
-
-alert("Ogłoszenie zapisane.");
-
-}
-
-
-/* LOGIN */
-
-function login(){
-
-const email=
-document.getElementById("loginEmail")
-.value
-.trim();
-
-const password=
-document.getElementById("loginPassword")
-.value;
-
-const message=
-document.getElementById("loginMessage");
-
-
-/* TESTOWY ADMIN */
-
-if(
-email==="admin@resellingacademy.pl" &&
-password==="Admin123!"
-){
-
-localStorage.setItem(
-"loggedIn",
-"true"
-);
-
-localStorage.setItem(
-"admin",
-"true"
-);
-
-closeModals();
-
-showAdmin();
-
-return;
-
-}
-
-
-const savedUser=
-JSON.parse(
-localStorage.getItem("resellingUser")
-);
-
-
-if(!savedUser){
-
-message.textContent=
-"Nie znaleziono konta.";
-
-return;
-
-}
-
-
-if(
-email!==savedUser.email ||
-password!==savedUser.password
-){
-
-message.textContent=
-"Nieprawidłowy e-mail lub hasło.";
-
-return;
-
-}
-
-
-localStorage.setItem(
-"loggedIn",
-"true"
-);
-
-closeModals();
-
-showDashboard(savedUser);
-
-}
-
-
-/* REGISTER */
-
-function register(){
-
-const name=
-document.getElementById("registerName")
-.value
-.trim();
-
-const email=
-document.getElementById("registerEmail")
-.value
-.trim();
-
-const password=
-document.getElementById("registerPassword")
-.value;
-
-const message=
-document.getElementById("registerMessage");
-
-
-if(!name || !email || !password){
-
-message.className="message error";
-
-message.textContent=
-"Uzupełnij wszystkie pola.";
-
-return;
-
-}
-
-
-if(password.length<6){
-
-message.className="message error";
-
-message.textContent=
-"Hasło musi mieć minimum 6 znaków.";
-
-return;
-
-}
-
-
-const user={
-name:name,
-email:email,
-password:password
-};
-
-localStorage.setItem(
-"resellingUser",
-JSON.stringify(user)
-);
-
-localStorage.setItem(
-"loggedIn",
-"true"
-);
-
-closeModals();
-
-showDashboard(user);
-
-}
-
-
-/* DASHBOARD */
-
-function showDashboard(user){
-
-document.getElementById("home")
-.style.display="none";
-
-document.getElementById("adminPanel")
-.style.display="none";
-
-document.getElementById("dashboard")
-.style.display="block";
-
-document.getElementById("welcome")
-.textContent=
-"Witaj, "+user.name+"! 👋";
-
-}
-
-
-/* LOGOUT */
-
-function logout(){
-
-localStorage.removeItem("loggedIn");
-
-localStorage.removeItem("admin");
-
-document.getElementById("dashboard")
-.style.display="none";
-
-document.getElementById("adminPanel")
-.style.display="none";
-
-document.getElementById("home")
-.style.display="block";
-
-}
-
-
-/* MODALE */
-
-function openModal(type){
-
-closeModals();
-
-if(type==="login"){
-
-document.getElementById("loginModal")
-.style.display="flex";
-
-}
-
-if(type==="register"){
-
-document.getElementById("registerModal")
-.style.display="flex";
-
-}
-
-}
-
-
-function closeModals(){
-
-document.getElementById("loginModal")
-.style.display="none";
-
-document.getElementById("registerModal")
-.style.display="none";
-
-}
-
-
-function switchModal(type){
-
-openModal(type);
-
-}
-
-
-/* HOME */
-
-function showHome(){
-
-document.getElementById("dashboard")
-.style.display="none";
-
-document.getElementById("adminPanel")
-.style.display="none";
-
-document.getElementById("home")
-.style.display="block";
-
-}
-
-
-/* SCROLL */
-
-function scrollToSection(id){
-
-const element=
-document.getElementById(id);
-
-if(element){
-
-element.scrollIntoView({
-behavior:"smooth"
-});
-
-}
-
-}
-
-
-/* SECURITY */
-
-function escapeHTML(text){
-
-return String(text)
-.replaceAll("&","&amp;")
-.replaceAll("<","&lt;")
-.replaceAll(">","&gt;")
-.replaceAll('"',"&quot;")
-.replaceAll("'","&#039;");
-
-}
-
-
-/* LOAD */
-
-window.addEventListener("load",()=>{
-
-const bg=
-localStorage.getItem("siteBg");
-
-const primary=
-localStorage.getItem("sitePrimary");
+const primary=localStorage.getItem("sitePrimary");
 
 const image=
 localStorage.getItem("siteBackgroundImage");
@@ -1826,24 +1295,22 @@ localStorage.getItem("siteBackgroundImage");
 
 if(bg){
 
-document.documentElement
-.style
-.setProperty("--bg",bg);
+document.documentElement.style.setProperty(
+"--bg",bg
+);
 
-document.getElementById("bgColor")
-.value=bg;
+document.getElementById("bgColor").value=bg;
 
 }
 
 
 if(primary){
 
-document.documentElement
-.style
-.setProperty("--primary",primary);
+document.documentElement.style.setProperty(
+"--primary",primary
+);
 
-document.getElementById("primaryColor")
-.value=primary;
+document.getElementById("primaryColor").value=primary;
 
 }
 
@@ -1853,21 +1320,41 @@ if(image){
 document.body.style.backgroundImage=
 "url('"+image+"')";
 
-document.getElementById("imagePreview")
-.style.backgroundImage=
-"url('"+image+"')";
+}
+
+
+const {
+data:{session}
+}=await supabaseClient.auth.getSession();
+
+
+if(session){
+
+await loadUser(session.user);
+
+}
 
 }
 
 
-renderProducts();
+function scrollToSection(id){
 
+const el=document.getElementById(id);
+
+if(el){
+
+el.scrollIntoView({
+behavior:"smooth"
 });
+
+}
+
+}
+
+
+start();
 
 </script>
 
 </body>
 </html>
-```
-
-**Ważne:** własne zdjęcie jest zapisywane tutaj tylko w `localStorage`, więc jest to wersja testowa. Po podłączeniu Supabase przeniesiemy ustawienia wyglądu, produkty i kody rabatowe do bazy, a AI podłączymy bezpiecznie do backendu.
