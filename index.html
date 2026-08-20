@@ -1,0 +1,1873 @@
+```html
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Reselling Academy</title>
+
+<style>
+:root{
+    --bg:#08090d;
+    --card:#11131a;
+    --border:#252833;
+    --text:#ffffff;
+    --muted:#9296a3;
+    --primary:#7c5cff;
+    --primary-hover:#6847ed;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    transition:.3s;
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(8,9,13,.92);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid var(--border);
+}
+
+.nav{
+    max-width:1200px;
+    margin:auto;
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    padding:12px 20px;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:800;
+}
+
+.logo span{
+    color:var(--primary);
+}
+
+nav{
+    display:flex;
+    gap:22px;
+}
+
+nav a{
+    color:#b7bac5;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+nav a:hover{
+    color:white;
+}
+
+.nav-buttons{
+    display:flex;
+    gap:10px;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+    border-radius:10px;
+    padding:12px 18px;
+    font-weight:700;
+}
+
+.primary{
+    background:var(--primary);
+    color:white;
+}
+
+.primary:hover{
+    background:var(--primary-hover);
+}
+
+.secondary{
+    background:transparent;
+    color:white;
+    border:1px solid #30333e;
+}
+
+.hero{
+    max-width:1100px;
+    margin:auto;
+    padding:100px 20px 80px;
+    text-align:center;
+}
+
+.badge{
+    display:inline-block;
+    background:rgba(124,92,255,.15);
+    color:#b29fff;
+    border:1px solid rgba(124,92,255,.4);
+    padding:8px 14px;
+    border-radius:30px;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:clamp(42px,7vw,78px);
+    line-height:1;
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:var(--primary);
+}
+
+.hero p{
+    max-width:650px;
+    margin:auto;
+    color:var(--muted);
+    font-size:18px;
+    line-height:1.6;
+}
+
+.hero-buttons{
+    margin-top:35px;
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.section{
+    max-width:1100px;
+    margin:auto;
+    padding:70px 20px;
+}
+
+.section-title{
+    text-align:center;
+    font-size:38px;
+    margin-bottom:12px;
+}
+
+.section-subtitle{
+    text-align:center;
+    color:#888d9b;
+    margin-bottom:45px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:30px;
+}
+
+.card.pro{
+    border-color:var(--primary);
+}
+
+.card h3{
+    font-size:25px;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:var(--muted);
+    line-height:1.6;
+}
+
+.price{
+    font-size:38px;
+    font-weight:800;
+    margin:25px 0;
+}
+
+.features{
+    list-style:none;
+    margin-bottom:25px;
+}
+
+.features li{
+    margin:13px 0;
+    color:#c6c8d0;
+}
+
+.features li::before{
+    content:"✓";
+    color:var(--primary);
+    font-weight:bold;
+    margin-right:10px;
+}
+
+.full-btn{
+    width:100%;
+}
+
+.panel{
+    display:none;
+    max-width:1100px;
+    margin:40px auto;
+    padding:20px;
+}
+
+.panel-box{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:30px;
+}
+
+.panel-description{
+    color:var(--muted);
+    margin:10px 0 25px;
+}
+
+.admin-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.admin-card{
+    background:#171922;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:22px;
+    margin-bottom:20px;
+}
+
+.admin-card h3{
+    margin-bottom:10px;
+}
+
+.admin-card p{
+    color:var(--muted);
+    line-height:1.5;
+}
+
+.input,
+.textarea,
+.select{
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+    background:#08090d;
+    color:white;
+    border:1px solid #30333e;
+    border-radius:10px;
+    outline:none;
+}
+
+.textarea{
+    min-height:130px;
+    resize:vertical;
+}
+
+.color-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    margin:15px 0;
+}
+
+.color-input{
+    width:70px;
+    height:45px;
+    border:0;
+    background:none;
+}
+
+.file-input{
+    width:100%;
+    margin:12px 0;
+}
+
+.preview{
+    width:100%;
+    height:150px;
+    border-radius:12px;
+    background:#08090d;
+    background-size:cover;
+    background-position:center;
+    border:1px solid var(--border);
+    margin:15px 0;
+}
+
+.ai-result{
+    margin-top:15px;
+    padding:15px;
+    background:#0b0c11;
+    border:1px solid var(--border);
+    border-radius:12px;
+    color:#c6c8d0;
+}
+
+.item{
+    background:#0d0f15;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:15px;
+    margin:10px 0;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:200;
+    background:rgba(0,0,0,.75);
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal-box{
+    width:100%;
+    max-width:430px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:30px;
+}
+
+.close{
+    float:right;
+    background:transparent;
+    color:#aaa;
+    font-size:22px;
+    padding:0;
+}
+
+.switch{
+    color:#9b8cff;
+    cursor:pointer;
+}
+
+.message{
+    margin-top:12px;
+    font-size:14px;
+}
+
+.success{
+    color:#67e8a5;
+}
+
+.error{
+    color:#ff7777;
+}
+
+footer{
+    border-top:1px solid var(--border);
+    text-align:center;
+    padding:35px 20px;
+    color:#737784;
+    margin-top:50px;
+}
+
+@media(max-width:800px){
+
+    nav{
+        display:none;
+    }
+
+    .cards,
+    .admin-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding-top:70px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<div class="logo">
+Reselling <span>Academy</span>
+</div>
+
+<nav>
+<a onclick="showHome()">Start</a>
+<a onclick="scrollToSection('courses')">Kursy</a>
+<a onclick="openModal('login')">Logowanie</a>
+</nav>
+
+<div class="nav-buttons">
+<button class="secondary" onclick="openModal('login')">
+Zaloguj się
+</button>
+
+<button class="primary" onclick="openModal('register')">
+Załóż konto
+</button>
+</div>
+
+</div>
+
+</header>
+
+
+<main id="home">
+
+<section class="hero">
+
+<div class="badge">
+🚀 Naucz się resellingu
+</div>
+
+<h1>
+Zacznij swój<br>
+<span>reselling</span> od zera.
+</h1>
+
+<p>
+Praktyczna wiedza, produkty, dostawcy
+i strategie sprzedaży online.
+</p>
+
+<div class="hero-buttons">
+
+<button class="primary"
+onclick="scrollToSection('courses')">
+Zobacz kursy
+</button>
+
+<button class="secondary"
+onclick="openModal('register')">
+Załóż konto
+</button>
+
+</div>
+
+</section>
+
+
+<section class="section" id="courses">
+
+<h2 class="section-title">
+Wybierz swój pakiet
+</h2>
+
+<p class="section-subtitle">
+Wybierz pakiet dopasowany do siebie.
+</p>
+
+<div class="cards" id="products"></div>
+
+</section>
+
+
+<section class="section">
+
+<h2 class="section-title">
+Dlaczego Reselling Academy?
+</h2>
+
+<p class="section-subtitle">
+Wszystko w jednym miejscu.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<h3>📚 Wiedza</h3>
+<p>
+Materiały dla początkujących
+i zaawansowanych.
+</p>
+</div>
+
+<div class="card">
+<h3>📦 Dostawcy</h3>
+<p>
+Informacje o produktach
+i dostawcach.
+</p>
+</div>
+
+<div class="card">
+<h3>💰 Sprzedaż</h3>
+<p>
+Strategie wyceny i sprzedaży.
+</p>
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- DASHBOARD -->
+
+<section class="panel" id="dashboard">
+
+<div class="panel-box">
+
+<h2>👤 Panel użytkownika</h2>
+
+<p class="panel-description" id="welcome"></p>
+
+<div id="userCourses"></div>
+
+<button class="secondary"
+onclick="logout()">
+Wyloguj się
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ADMIN -->
+
+<section class="panel" id="adminPanel">
+
+<div class="panel-box">
+
+<h2>🛠️ Panel administratora</h2>
+
+<p class="panel-description">
+Zarządzaj stroną, produktami, promocjami
+i wyglądem.
+</p>
+
+
+<div class="admin-grid">
+
+
+<!-- AI -->
+
+<div class="admin-card">
+
+<h3>🤖 AI Designer</h3>
+
+<p>
+Napisz, jak ma wyglądać strona.
+</p>
+
+<textarea
+class="textarea"
+id="aiPrompt"
+placeholder="Np. Zrób czarne tło, czerwone przyciski i nowoczesny wygląd.">
+</textarea>
+
+<button class="primary full-btn"
+onclick="runAI()">
+✨ Zastosuj przez AI
+</button>
+
+<div class="ai-result"
+id="aiResult">
+AI Designer jest gotowy.
+</div>
+
+</div>
+
+
+<!-- COLORS -->
+
+<div class="admin-card">
+
+<h3>🎨 Ręczny wygląd</h3>
+
+<div class="color-row">
+<span>Tło</span>
+
+<input
+type="color"
+class="color-input"
+id="bgColor"
+value="#08090d">
+</div>
+
+<div class="color-row">
+<span>Przyciski</span>
+
+<input
+type="color"
+class="color-input"
+id="primaryColor"
+value="#7c5cff">
+</div>
+
+<button class="primary full-btn"
+onclick="applyColors()">
+💾 Zapisz kolory
+</button>
+
+</div>
+
+
+<!-- IMAGE -->
+
+<div class="admin-card">
+
+<h3>🖼️ Własne tło</h3>
+
+<p>
+Wybierz zdjęcie z telefonu lub komputera.
+</p>
+
+<input
+class="file-input"
+type="file"
+id="backgroundFile"
+accept="image/*"
+onchange="loadBackground(event)">
+
+<div class="preview"
+id="imagePreview">
+</div>
+
+<button class="secondary full-btn"
+onclick="removeBackground()">
+Usuń zdjęcie tła
+</button>
+
+</div>
+
+
+<!-- PRODUCTS -->
+
+<div class="admin-card">
+
+<h3>📦 Dodaj produkt/kurs</h3>
+
+<input
+class="input"
+id="newProductName"
+placeholder="Nazwa">
+
+<input
+class="input"
+id="newProductPrice"
+type="number"
+step="0.01"
+placeholder="Cena">
+
+<textarea
+class="textarea"
+id="newProductDescription"
+placeholder="Opis produktu">
+</textarea>
+
+<button class="primary full-btn"
+onclick="addProduct()">
+➕ Dodaj
+</button>
+
+</div>
+
+
+<!-- PROMO -->
+
+<div class="admin-card">
+
+<h3>🎟️ Kody rabatowe</h3>
+
+<input
+class="input"
+id="promoCode"
+placeholder="Kod np. START10">
+
+<input
+class="input"
+id="promoDiscount"
+type="number"
+min="1"
+max="100"
+placeholder="Rabat %">
+
+<button class="primary full-btn"
+onclick="addPromo()">
+➕ Dodaj kod
+</button>
+
+<div id="promoList"></div>
+
+</div>
+
+
+<!-- ANNOUNCEMENTS -->
+
+<div class="admin-card">
+
+<h3>📢 Ogłoszenie</h3>
+
+<textarea
+class="textarea"
+id="announcement"
+placeholder="Treść ogłoszenia">
+</textarea>
+
+<button class="primary full-btn"
+onclick="saveAnnouncement()">
+💾 Zapisz ogłoszenie
+</button>
+
+</div>
+
+</div>
+
+
+<br>
+
+<button class="secondary"
+onclick="closeAdmin()">
+← Wróć
+</button>
+
+</div>
+
+</section>
+
+
+<footer>
+© 2026 Reselling Academy
+</footer>
+
+
+<!-- LOGIN -->
+
+<div class="modal" id="loginModal">
+
+<div class="modal-box">
+
+<button class="close"
+onclick="closeModals()">
+×
+</button>
+
+<h2>Logowanie</h2>
+
+<input
+class="input"
+id="loginEmail"
+type="email"
+placeholder="Adres e-mail">
+
+<input
+class="input"
+id="loginPassword"
+type="password"
+placeholder="Hasło">
+
+<button class="primary full-btn"
+onclick="login()">
+Zaloguj się
+</button>
+
+<p
+class="message"
+id="loginMessage">
+</p>
+
+<p style="margin-top:18px;color:#888">
+Nie masz konta?
+
+<span
+class="switch"
+onclick="switchModal('register')">
+Zarejestruj się
+</span>
+</p>
+
+</div>
+
+</div>
+
+
+<!-- REGISTER -->
+
+<div class="modal" id="registerModal">
+
+<div class="modal-box">
+
+<button class="close"
+onclick="closeModals()">
+×
+</button>
+
+<h2>Utwórz konto</h2>
+
+<input
+class="input"
+id="registerName"
+placeholder="Imię">
+
+<input
+class="input"
+id="registerEmail"
+type="email"
+placeholder="Adres e-mail">
+
+<input
+class="input"
+id="registerPassword"
+type="password"
+placeholder="Hasło">
+
+<button class="primary full-btn"
+onclick="register()">
+Utwórz konto
+</button>
+
+<p
+class="message"
+id="registerMessage">
+</p>
+
+</div>
+
+</div>
+
+
+<!-- CHECKOUT -->
+
+<div class="modal" id="checkoutModal">
+
+<div class="modal-box">
+
+<button class="close"
+onclick="closeCheckout()">
+×
+</button>
+
+<h2>🛒 Zamówienie</h2>
+
+<p id="checkoutProduct"></p>
+
+<input
+class="input"
+id="discountInput"
+placeholder="Kod rabatowy">
+
+<button
+class="secondary full-btn"
+onclick="applyDiscount()">
+Zastosuj kod
+</button>
+
+<p id="checkoutPrice"
+style="margin:15px 0;font-size:22px;font-weight:bold">
+</p>
+
+<button class="primary full-btn"
+onclick="confirmPurchase()">
+Przejdź do płatności
+</button>
+
+<p
+class="message"
+id="checkoutMessage">
+</p>
+
+</div>
+
+</div>
+
+
+<script>
+
+let products =
+JSON.parse(localStorage.getItem("products")) || [
+
+{
+name:"📦 Reselling od zera",
+price:29.99,
+description:"Podstawy resellingu, produkty, wycena i dostęp do dostawcy."
+},
+
+{
+name:"🚀 Reselling Pro",
+price:59.99,
+description:"Wszystko z Reselling od zera oraz zaawansowane strategie."
+},
+
+{
+name:"👑 Mentoring",
+price:100,
+description:"Reselling od zera + Pro + materiały mentoringowe."
+}
+
+];
+
+
+let promos =
+JSON.parse(localStorage.getItem("promos")) || [];
+
+
+let selectedProduct = null;
+let selectedPrice = 0;
+let selectedDiscount = 0;
+
+
+/* PRODUCTS */
+
+function renderProducts(){
+
+const container =
+document.getElementById("products");
+
+container.innerHTML="";
+
+products.forEach((product,index)=>{
+
+const card =
+document.createElement("div");
+
+card.className="card";
+
+if(index===1){
+card.classList.add("pro");
+}
+
+card.innerHTML=`
+
+<h3>${escapeHTML(product.name)}</h3>
+
+<p>
+${escapeHTML(product.description)}
+</p>
+
+<div class="price">
+${Number(product.price).toFixed(2)} zł
+</div>
+
+<ul class="features">
+
+<li>Dostęp do materiałów</li>
+<li>Materiały resellingowe</li>
+<li>Aktualizacje</li>
+
+</ul>
+
+<button
+class="primary full-btn"
+onclick="buyProduct(${index})">
+
+Kup teraz
+
+</button>
+
+`;
+
+container.appendChild(card);
+
+});
+
+}
+
+
+/* BUY */
+
+function buyProduct(index){
+
+if(
+localStorage.getItem("loggedIn")!=="true"
+){
+
+openModal("login");
+
+return;
+}
+
+selectedProduct=products[index];
+
+selectedPrice=Number(selectedProduct.price);
+
+selectedDiscount=0;
+
+document.getElementById("checkoutProduct").textContent=
+selectedProduct.name;
+
+document.getElementById("checkoutPrice").textContent=
+"Cena: "+selectedPrice.toFixed(2)+" zł";
+
+document.getElementById("discountInput").value="";
+
+document.getElementById("checkoutModal").style.display="flex";
+
+}
+
+
+/* DISCOUNT */
+
+function applyDiscount(){
+
+const code=
+document.getElementById("discountInput")
+.value
+.trim()
+.toUpperCase();
+
+const promo=
+promos.find(p=>p.code===code);
+
+const message=
+document.getElementById("checkoutMessage");
+
+if(!promo){
+
+message.className="message error";
+
+message.textContent=
+"Nieprawidłowy kod rabatowy.";
+
+return;
+}
+
+selectedDiscount=
+Number(promo.discount);
+
+const finalPrice=
+selectedPrice*
+(1-selectedDiscount/100);
+
+document.getElementById("checkoutPrice").textContent=
+"Cena po rabacie: "+
+finalPrice.toFixed(2)+" zł";
+
+message.className="message success";
+
+message.textContent=
+"Rabat "+selectedDiscount+"% został zastosowany.";
+
+}
+
+
+/* CONFIRM */
+
+function confirmPurchase(){
+
+const finalPrice=
+selectedPrice*
+(1-selectedDiscount/100);
+
+alert(
+"Wybrano: "+
+selectedProduct.name+
+"\nCena: "+
+finalPrice.toFixed(2)+
+" zł\n\nPrawdziwe płatności podłączymy później."
+);
+
+closeCheckout();
+
+}
+
+
+function closeCheckout(){
+
+document.getElementById("checkoutModal")
+.style.display="none";
+
+}
+
+
+/* ADMIN */
+
+function showAdmin(){
+
+document.getElementById("home").style.display="none";
+
+document.getElementById("dashboard").style.display="none";
+
+document.getElementById("adminPanel").style.display="block";
+
+renderPromos();
+
+}
+
+
+function closeAdmin(){
+
+document.getElementById("adminPanel").style.display="none";
+
+document.getElementById("home").style.display="block";
+
+}
+
+
+/* ADD PRODUCT */
+
+function addProduct(){
+
+const name=
+document.getElementById("newProductName").value.trim();
+
+const price=
+Number(document.getElementById("newProductPrice").value);
+
+const description=
+document.getElementById("newProductDescription").value.trim();
+
+if(!name || !price){
+
+alert("Uzupełnij nazwę i cenę.");
+
+return;
+}
+
+products.push({
+name:name,
+price:price,
+description:description
+});
+
+localStorage.setItem(
+"products",
+JSON.stringify(products)
+);
+
+renderProducts();
+
+alert("Produkt dodany.");
+
+}
+
+
+/* PROMOS */
+
+function addPromo(){
+
+const code=
+document.getElementById("promoCode")
+.value
+.trim()
+.toUpperCase();
+
+const discount=
+Number(
+document.getElementById("promoDiscount").value
+);
+
+if(!code || !discount){
+
+alert("Uzupełnij kod i rabat.");
+
+return;
+}
+
+promos.push({
+code:code,
+discount:discount
+});
+
+localStorage.setItem(
+"promos",
+JSON.stringify(promos)
+);
+
+renderPromos();
+
+alert(
+"Utworzono kod "+
+code+
+" - "+
+discount+
+"%"
+);
+
+}
+
+
+function renderPromos(){
+
+const list=
+document.getElementById("promoList");
+
+if(!list)return;
+
+list.innerHTML="";
+
+promos.forEach((promo,index)=>{
+
+const item=
+document.createElement("div");
+
+item.className="item";
+
+item.innerHTML=`
+
+<b>${escapeHTML(promo.code)}</b>
+-
+${promo.discount}%
+
+<br><br>
+
+<button
+class="secondary"
+onclick="deletePromo(${index})">
+
+Usuń
+
+</button>
+
+`;
+
+list.appendChild(item);
+
+});
+
+}
+
+
+function deletePromo(index){
+
+promos.splice(index,1);
+
+localStorage.setItem(
+"promos",
+JSON.stringify(promos)
+);
+
+renderPromos();
+
+}
+
+
+/* COLORS */
+
+function applyColors(){
+
+const bg=
+document.getElementById("bgColor").value;
+
+const primary=
+document.getElementById("primaryColor").value;
+
+document.documentElement.style.setProperty(
+"--bg",
+bg
+);
+
+document.documentElement.style.setProperty(
+"--primary",
+primary
+);
+
+localStorage.setItem(
+"siteBg",
+bg
+);
+
+localStorage.setItem(
+"sitePrimary",
+primary
+);
+
+alert("Kolory zapisane.");
+
+}
+
+
+/* IMAGE */
+
+function loadBackground(event){
+
+const file=
+event.target.files[0];
+
+if(!file)return;
+
+if(!file.type.startsWith("image/")){
+
+alert("Wybierz plik graficzny.");
+
+return;
+}
+
+const reader=
+new FileReader();
+
+reader.onload=function(e){
+
+const image=e.target.result;
+
+document.body.style.backgroundImage=
+"url('"+image+"')";
+
+document.getElementById("imagePreview")
+.style.backgroundImage=
+"url('"+image+"')";
+
+localStorage.setItem(
+"siteBackgroundImage",
+image
+);
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+
+function removeBackground(){
+
+document.body.style.backgroundImage="none";
+
+document.getElementById("imagePreview")
+.style.backgroundImage="none";
+
+localStorage.removeItem(
+"siteBackgroundImage"
+);
+
+}
+
+
+/* AI TEST */
+
+function runAI(){
+
+const prompt=
+document.getElementById("aiPrompt")
+.value
+.toLowerCase()
+.trim();
+
+const result=
+document.getElementById("aiResult");
+
+if(!prompt){
+
+result.textContent=
+"Napisz, co chcesz zmienić.";
+
+return;
+}
+
+
+let changes=[];
+
+
+/* TŁO */
+
+if(
+prompt.includes("czarne") ||
+prompt.includes("czarn")
+){
+
+document.documentElement.style.setProperty(
+"--bg",
+"#050505"
+);
+
+changes.push("czarne tło");
+
+}
+
+
+if(
+prompt.includes("białe") ||
+prompt.includes("bial")
+){
+
+document.documentElement.style.setProperty(
+"--bg",
+"#f5f5f5"
+);
+
+document.documentElement.style.setProperty(
+"--text",
+"#111111"
+);
+
+changes.push("jasne tło");
+
+}
+
+
+/* KOLORY */
+
+const colors={
+
+"fiolet":"#7c5cff",
+"niebies":"#1683ff",
+"czerw":"#ef4444",
+"zielon":"#22c55e",
+"różow":"#ec4899",
+"rozow":"#ec4899",
+"pomarańcz":"#f97316",
+"pomarancz":"#f97316",
+"żółt":"#eab308",
+"zolt":"#eab308"
+
+};
+
+
+for(const key in colors){
+
+if(prompt.includes(key)){
+
+document.documentElement.style.setProperty(
+"--primary",
+colors[key]
+);
+
+changes.push(
+"kolor "+key
+);
+
+break;
+
+}
+
+}
+
+
+/* RESET */
+
+if(
+prompt.includes("fioletowe") &&
+prompt.includes("czarne")
+){
+
+document.documentElement.style.setProperty(
+"--bg",
+"#050505"
+);
+
+document.documentElement.style.setProperty(
+"--primary",
+"#7c5cff"
+);
+
+}
+
+
+/* ZAPIS */
+
+localStorage.setItem(
+"siteBg",
+getComputedStyle(document.documentElement)
+.getPropertyValue("--bg")
+);
+
+localStorage.setItem(
+"sitePrimary",
+getComputedStyle(document.documentElement)
+.getPropertyValue("--primary")
+);
+
+
+if(changes.length){
+
+result.innerHTML=
+"✅ Zmieniono: "+
+changes.join(", ")+
+".<br><br>"+
+"<small>To jest jeszcze testowa wersja AI. Prawdziwe ChatGPT podłączymy przez backend.</small>";
+
+}else{
+
+result.innerHTML=
+"ℹ️ Nie rozpoznałem jeszcze tej zmiany.<br><br>"+
+"Spróbuj np.:<br>"+
+"„czarne tło i czerwone przyciski”";
+
+}
+
+}
+
+
+/* ANNOUNCEMENT */
+
+function saveAnnouncement(){
+
+const text=
+document.getElementById("announcement")
+.value
+.trim();
+
+if(!text){
+
+alert("Wpisz ogłoszenie.");
+
+return;
+}
+
+localStorage.setItem(
+"announcement",
+text
+);
+
+alert("Ogłoszenie zapisane.");
+
+}
+
+
+/* LOGIN */
+
+function login(){
+
+const email=
+document.getElementById("loginEmail")
+.value
+.trim();
+
+const password=
+document.getElementById("loginPassword")
+.value;
+
+const message=
+document.getElementById("loginMessage");
+
+
+/* TESTOWY ADMIN */
+
+if(
+email==="admin@resellingacademy.pl" &&
+password==="Admin123!"
+){
+
+localStorage.setItem(
+"loggedIn",
+"true"
+);
+
+localStorage.setItem(
+"admin",
+"true"
+);
+
+closeModals();
+
+showAdmin();
+
+return;
+
+}
+
+
+const savedUser=
+JSON.parse(
+localStorage.getItem("resellingUser")
+);
+
+
+if(!savedUser){
+
+message.textContent=
+"Nie znaleziono konta.";
+
+return;
+
+}
+
+
+if(
+email!==savedUser.email ||
+password!==savedUser.password
+){
+
+message.textContent=
+"Nieprawidłowy e-mail lub hasło.";
+
+return;
+
+}
+
+
+localStorage.setItem(
+"loggedIn",
+"true"
+);
+
+closeModals();
+
+showDashboard(savedUser);
+
+}
+
+
+/* REGISTER */
+
+function register(){
+
+const name=
+document.getElementById("registerName")
+.value
+.trim();
+
+const email=
+document.getElementById("registerEmail")
+.value
+.trim();
+
+const password=
+document.getElementById("registerPassword")
+.value;
+
+const message=
+document.getElementById("registerMessage");
+
+
+if(!name || !email || !password){
+
+message.className="message error";
+
+message.textContent=
+"Uzupełnij wszystkie pola.";
+
+return;
+
+}
+
+
+if(password.length<6){
+
+message.className="message error";
+
+message.textContent=
+"Hasło musi mieć minimum 6 znaków.";
+
+return;
+
+}
+
+
+const user={
+name:name,
+email:email,
+password:password
+};
+
+localStorage.setItem(
+"resellingUser",
+JSON.stringify(user)
+);
+
+localStorage.setItem(
+"loggedIn",
+"true"
+);
+
+closeModals();
+
+showDashboard(user);
+
+}
+
+
+/* DASHBOARD */
+
+function showDashboard(user){
+
+document.getElementById("home")
+.style.display="none";
+
+document.getElementById("adminPanel")
+.style.display="none";
+
+document.getElementById("dashboard")
+.style.display="block";
+
+document.getElementById("welcome")
+.textContent=
+"Witaj, "+user.name+"! 👋";
+
+}
+
+
+/* LOGOUT */
+
+function logout(){
+
+localStorage.removeItem("loggedIn");
+
+localStorage.removeItem("admin");
+
+document.getElementById("dashboard")
+.style.display="none";
+
+document.getElementById("adminPanel")
+.style.display="none";
+
+document.getElementById("home")
+.style.display="block";
+
+}
+
+
+/* MODALE */
+
+function openModal(type){
+
+closeModals();
+
+if(type==="login"){
+
+document.getElementById("loginModal")
+.style.display="flex";
+
+}
+
+if(type==="register"){
+
+document.getElementById("registerModal")
+.style.display="flex";
+
+}
+
+}
+
+
+function closeModals(){
+
+document.getElementById("loginModal")
+.style.display="none";
+
+document.getElementById("registerModal")
+.style.display="none";
+
+}
+
+
+function switchModal(type){
+
+openModal(type);
+
+}
+
+
+/* HOME */
+
+function showHome(){
+
+document.getElementById("dashboard")
+.style.display="none";
+
+document.getElementById("adminPanel")
+.style.display="none";
+
+document.getElementById("home")
+.style.display="block";
+
+}
+
+
+/* SCROLL */
+
+function scrollToSection(id){
+
+const element=
+document.getElementById(id);
+
+if(element){
+
+element.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+}
+
+
+/* SECURITY */
+
+function escapeHTML(text){
+
+return String(text)
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
+
+}
+
+
+/* LOAD */
+
+window.addEventListener("load",()=>{
+
+const bg=
+localStorage.getItem("siteBg");
+
+const primary=
+localStorage.getItem("sitePrimary");
+
+const image=
+localStorage.getItem("siteBackgroundImage");
+
+
+if(bg){
+
+document.documentElement
+.style
+.setProperty("--bg",bg);
+
+document.getElementById("bgColor")
+.value=bg;
+
+}
+
+
+if(primary){
+
+document.documentElement
+.style
+.setProperty("--primary",primary);
+
+document.getElementById("primaryColor")
+.value=primary;
+
+}
+
+
+if(image){
+
+document.body.style.backgroundImage=
+"url('"+image+"')";
+
+document.getElementById("imagePreview")
+.style.backgroundImage=
+"url('"+image+"')";
+
+}
+
+
+renderProducts();
+
+});
+
+</script>
+
+</body>
+</html>
+```
+
+**Ważne:** własne zdjęcie jest zapisywane tutaj tylko w `localStorage`, więc jest to wersja testowa. Po podłączeniu Supabase przeniesiemy ustawienia wyglądu, produkty i kody rabatowe do bazy, a AI podłączymy bezpiecznie do backendu.
